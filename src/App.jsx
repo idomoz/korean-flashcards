@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import { vocabulary, chapters } from './data/vocabulary'
 
@@ -14,6 +14,15 @@ function shuffleArray(arr) {
 }
 
 function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shuffleMode, setShuffleMode, onStart, count, availableChapters }) {
+  const chapterListRef = useRef(null)
+  const selectedChapterRef = useRef(null)
+
+  useEffect(() => {
+    if (selectedChapterRef.current && chapterListRef.current) {
+      selectedChapterRef.current.scrollIntoView({ block: 'center', behavior: 'instant' })
+    }
+  }, [book])
+
   return (
     <div className="h-full bg-gray-900 flex flex-col items-center justify-center p-4 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] overflow-auto">
       <div className="bg-gray-800 rounded-3xl shadow-2xl p-6 w-full max-w-md my-auto">
@@ -24,15 +33,15 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-3">Select Book</label>
-            <div className="grid grid-cols-3 gap-3">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">Select Book</label>
+            <div className="grid grid-cols-3 gap-2">
               {['1A', '1B', 'All'].map((b) => (
                 <button
                   key={b}
                   onClick={() => { setBook(b); setChapter('all'); }}
-                  className={`py-3 px-3 rounded-xl font-bold text-base transition-all duration-200 ${
+                  className={`py-2 px-2 rounded-lg font-bold text-sm transition-all duration-200 ${
                     book === b
-                      ? 'bg-indigo-600 text-white shadow-lg scale-105'
+                      ? 'bg-indigo-600 text-white shadow-lg'
                       : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                   }`}
                 >
@@ -44,9 +53,13 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
 
           {book !== 'All' && availableChapters.length > 0 && (
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-3">Select Chapter</label>
-              <div className="grid grid-cols-2 gap-2 max-h-28 overflow-y-auto">
+              <div className="flex items-center justify-between mb-2">
+                <label className="text-sm font-semibold text-gray-300">Select Chapter</label>
+                <span className="text-sm text-gray-500">{count} cards</span>
+              </div>
+              <div ref={chapterListRef} className="grid grid-cols-2 gap-2 max-h-28 overflow-y-auto">
                 <button
+                  ref={chapter === 'all' ? selectedChapterRef : null}
                   onClick={() => setChapter('all')}
                   className={`py-2 px-3 rounded-lg text-sm transition-all duration-200 ${
                     chapter === 'all'
@@ -59,6 +72,7 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
                 {availableChapters.map((ch) => (
                   <button
                     key={ch.id}
+                    ref={chapter === ch.id ? selectedChapterRef : null}
                     onClick={() => setChapter(ch.id)}
                     className={`py-2 px-3 rounded-lg text-sm transition-all duration-200 text-left truncate ${
                       chapter === ch.id
@@ -73,7 +87,9 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
             </div>
           )}
 
-          <p className="text-center text-sm text-gray-500">{count} cards available</p>
+          {(book === 'All' || availableChapters.length === 0) && (
+            <p className="text-center text-sm text-gray-500">{count} cards available</p>
+          )}
 
           <div>
             <label className="block text-sm font-semibold text-gray-300 mb-2">Show First</label>
@@ -244,7 +260,7 @@ function App() {
   const availableChapters = book !== 'All' ? (chapters[book] || []) : []
   
   // Filter vocabulary by chapter, remove duplicates, and optionally exclude known words
-  const getFilteredVocabulary = useCallback(() => {
+  const getFilteredVocabulary = useCallback((overrideKnownWords = null) => {
     let data = vocabulary[book] || []
     
     // Filter by chapter first if specific chapter selected
@@ -261,8 +277,9 @@ function App() {
     })
     
     // Filter out known words unless includeKnown is true
+    const knownList = overrideKnownWords !== null ? overrideKnownWords : knownWords
     if (!includeKnown) {
-      data = data.filter(item => !knownWords.includes(item.korean))
+      data = data.filter(item => !knownList.includes(item.korean))
     }
     
     return data
@@ -386,7 +403,12 @@ function App() {
     setKnownWords([])
     setHasSeenKnownTutorial(false)
     localStorage.removeItem('flashcard-seen-known-tutorial')
-  }, [])
+    // Refresh cards list to include previously known words (pass empty array since state hasn't updated yet)
+    const data = getFilteredVocabulary([])
+    setCards(shuffleMode ? shuffleArray(data) : data)
+    setIdx(0)
+    setFlipped(false)
+  }, [getFilteredVocabulary, shuffleMode])
 
   const dismissKnownTutorial = useCallback(() => {
     setShowKnownTutorial(false)
@@ -657,7 +679,13 @@ function App() {
                     </div>
                     <button
                       onClick={() => {
-                        setKnownWords(prev => prev.filter(w => w !== word))
+                        const newKnownWords = knownWords.filter(w => w !== word)
+                        setKnownWords(newKnownWords)
+                        // Refresh cards list
+                        const data = getFilteredVocabulary(newKnownWords)
+                        setCards(shuffleMode ? shuffleArray(data) : data)
+                        setIdx(0)
+                        setFlipped(false)
                       }}
                       className="text-red-400 p-1 flex-shrink-0"
                     >
