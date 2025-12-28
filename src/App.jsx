@@ -280,7 +280,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col">
-      <header className="bg-gray-800 px-4 py-3 flex items-center justify-between">
+      <header className="bg-gray-800 px-4 py-3 pt-[calc(0.75rem+env(safe-area-inset-top))] flex items-center justify-between">
         <button onClick={goBack} className="text-white hover:bg-white/20 p-2 rounded-lg transition-colors">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -321,7 +321,7 @@ function App() {
         </div>
       </main>
 
-      <footer className="bg-gray-800 px-4 py-4">
+      <footer className="bg-gray-800 px-4 py-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">
         <div className="flex items-center justify-between max-w-sm mx-auto">
           <button onClick={prevCard} className="text-white active:bg-white/20 p-3 rounded-full outline-none select-none transition-all duration-300">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
