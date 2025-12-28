@@ -106,7 +106,7 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
                     : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                 }`}
               >
-                🎲 Random
+                Random
               </button>
             </div>
           </div>
@@ -122,7 +122,7 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
                     : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                 }`}
               >
-                🔀 Shuffle
+                Shuffle
               </button>
               <button
                 onClick={() => setShuffleMode(false)}
@@ -132,7 +132,7 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
                     : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                 }`}
               >
-                📋 In Order
+                In Order
               </button>
             </div>
           </div>
@@ -541,6 +541,48 @@ function App() {
             <h2 className="text-xl font-bold text-white mb-4">Settings</h2>
             
             <div className="space-y-4">
+              <div>
+                <span className="text-gray-300 block mb-2">Show first</span>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setLang('korean')}
+                    className={`px-3 py-1 rounded-lg text-sm ${lang === 'korean' ? 'bg-indigo-600 text-white' : 'bg-gray-700 text-gray-300'}`}
+                  >
+                    Korean
+                  </button>
+                  <button
+                    onClick={() => setLang('english')}
+                    className={`px-3 py-1 rounded-lg text-sm ${lang === 'english' ? 'bg-indigo-600 text-white' : 'bg-gray-700 text-gray-300'}`}
+                  >
+                    English
+                  </button>
+                  <button
+                    onClick={() => setLang('random')}
+                    className={`px-3 py-1 rounded-lg text-sm ${lang === 'random' ? 'bg-indigo-600 text-white' : 'bg-gray-700 text-gray-300'}`}
+                  >
+                    Random
+                  </button>
+                </div>
+              </div>
+              
+              <div>
+                <span className="text-gray-300 block mb-2">Card order</span>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setShuffleMode(true)}
+                    className={`px-3 py-1 rounded-lg text-sm ${shuffleMode ? 'bg-indigo-600 text-white' : 'bg-gray-700 text-gray-300'}`}
+                  >
+                    Shuffle
+                  </button>
+                  <button
+                    onClick={() => setShuffleMode(false)}
+                    className={`px-3 py-1 rounded-lg text-sm ${!shuffleMode ? 'bg-indigo-600 text-white' : 'bg-gray-700 text-gray-300'}`}
+                  >
+                    In Order
+                  </button>
+                </div>
+              </div>
+              
               <div className="flex items-center justify-between">
                 <span className="text-gray-300">Include known words</span>
                 <button
