@@ -1,20 +1,27 @@
 // Vocabulary data extracted from Seoul National University Korean textbooks
 // Book 1A (Student Book + Workbook) and Book 1B (Student Book + Workbook)
-// Korean-English pairs only
+// Korean-English pairs with chapter information
 // Auto-generated from CSV files
 // Use https://www.youpdf.com/ to convert pdf to text
 
-import vocab1A from '../../csv/1A_combined.csv?raw'
-import vocab1B from '../../csv/1B_combined.csv?raw'
+import vocab1A from './1A_combined.csv?raw'
+import vocab1B from './1B_combined.csv?raw'
 
 function parseCSV(csv) {
   const lines = csv.trim().split('\n')
   const pairs = []
+  // Header: korean,english,chapter,chapterName
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i]
-    const match = line.match(/^"?([^",]+)"?,(.+)$/) || line.match(/^([^,]+),(.+)$/)
-    if (match) {
-      pairs.push({ korean: match[1], english: match[2].replace(/^"|"$/g, '') })
+    // Parse CSV with potential quoted fields
+    const parts = line.split(',')
+    if (parts.length >= 4) {
+      pairs.push({
+        korean: parts[0].replace(/^"|"$/g, ''),
+        english: parts[1].replace(/^"|"$/g, ''),
+        chapter: parts[2],
+        chapterName: parts[3].replace(/^"|"$/g, '')
+      })
     }
   }
   return pairs
@@ -22,6 +29,24 @@ function parseCSV(csv) {
 
 const vocab1AData = parseCSV(vocab1A)
 const vocab1BData = parseCSV(vocab1B)
+
+// Extract unique chapters for each book
+function getChapters(data) {
+  const seen = new Set()
+  const chapters = []
+  for (const item of data) {
+    if (item.chapter && !seen.has(item.chapter)) {
+      seen.add(item.chapter)
+      chapters.push({ id: item.chapter, name: item.chapterName })
+    }
+  }
+  return chapters
+}
+
+export const chapters = {
+  "1A": getChapters(vocab1AData),
+  "1B": getChapters(vocab1BData),
+}
 
 export const vocabulary = {
   "1A": vocab1AData,

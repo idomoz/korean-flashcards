@@ -1,0 +1,431 @@
+korean,english,chapter,chapterName
+쓰다,to write,9,Hospital
+끄다,to turn off,9,Hospital
+아프다,to be hurt / sick,9,Hospital
+바쁘다,to be busy,9,Hospital
+예쁘다,to be pretty,9,Hospital
+나쁘다,to be bad,9,Hospital
+배고프다,to be hungry,9,Hospital
+얼굴,face,9,Hospital
+눈,eye,9,Hospital
+코,nose,9,Hospital
+입,mouth,9,Hospital
+귀,ear,9,Hospital
+몸,body,9,Hospital
+머리,head,9,Hospital
+목,neck,9,Hospital
+가슴,chest,9,Hospital
+배,stomach,9,Hospital
+허리,lower back,9,Hospital
+다리,leg,9,Hospital
+손,hand,9,Hospital
+발,foot,9,Hospital
+팔,arm,9,Hospital
+어깨,shoulder,9,Hospital
+무릎,knee,9,Hospital
+미안하다,to be sorry,9,Hospital
+어제저녁,yesterday evening,9,Hospital
+아까,a minute (moment) ago,9,Hospital
+왜,why,9,Hospital
+아직,not yet,9,Hospital
+감기에 걸리다,to catch a cold,9,Hospital
+기침을 하다,to cough,9,Hospital
+열이 나다,to have a fever,9,Hospital
+콧물이 나오다,to have a runny nose,9,Hospital
+목이 아프다,to have a sore throat,9,Hospital
+건강에 좋다,to be good for health,9,Hospital
+건강에 나쁘다,to be bad for health,9,Hospital
+손을 씻다,to wash one’s hands,9,Hospital
+푹 쉬다,to rest up,9,Hospital
+담배를 피우다,to smoke,9,Hospital
+다치다,to be injured,9,Hospital
+처음,first,9,Hospital
+이름표,name tag,9,Hospital
+더,more,9,Hospital
+꼭,be sure to,9,Hospital
+같다,to be the same,9,Hospital
+전통,tradition,9,Hospital
+주다,to give,9,Hospital
+약,medicine,9,Hospital
+도와주다,to help,9,Hospital
+고맙다,to be thankful,9,Hospital
+회사에 다니다,to work at a company,10,Korean Life
+메일을 보내다,to send an email,10,Korean Life
+메일을 받다,to receive an email,10,Korean Life
+잘하다,to be good at,10,Korean Life
+못하다,to be bad at,10,Korean Life
+계획,plan,10,Korean Life
+오전,am,10,Korean Life
+오후,pm,10,Korean Life
+열심히,diligently,10,Korean Life
+잘,well,10,Korean Life
+제일,most,10,Korean Life
+대학원,grad(uate) school,10,Korean Life
+하루,day,10,Korean Life
+연습,practice,10,Korean Life
+시간,hour(s),10,Korean Life
+만들다,to make,10,Korean Life
+피아노를 치다,to play the piano,10,Korean Life
+기타를 치다,to play the guitar,10,Korean Life
+자전거를 타다,to ride a bike,10,Korean Life
+그림을 그리다,to paint a painting,10,Korean Life
+작년,last year,10,Korean Life
+올해,this year,10,Korean Life
+내년,next year,10,Korean Life
+친구를 사귀다,to make a friend,10,Korean Life
+스키를 타다,to ski,10,Korean Life
+게임을 하다,to play a game,10,Korean Life
+연습하다,to practice,10,Korean Life
+지난달,last month,10,Korean Life
+이번 달,this month,10,Korean Life
+다음 달,next month,10,Korean Life
+화가,painter,10,Korean Life
+단풍,fall foliage,10,Korean Life
+아름답다,to be beautiful,10,Korean Life
+삼계탕,ginseng chicken soup,10,Korean Life
+이렇게,like this,10,Korean Life
+앞으로,from now on,10,Korean Life
+작가,writer,10,Korean Life
+어떻다,how is,10,Korean Life
+뉴스,news,10,Korean Life
+축제,festival,10,Korean Life
+식사,meal,10,Korean Life
+비행기,plane,11,Transportation
+기차,train,11,Transportation
+택시,taxi,11,Transportation
+버스,bus,11,Transportation
+배,boat,11,Transportation
+지하철,subway,11,Transportation
+지하철역,subway station,11,Transportation
+버스 정류장,bus stop,11,Transportation
+터미널,terminal,11,Transportation
+공항,airport,11,Transportation
+내리다,to get off,11,Transportation
+타다,to get on,11,Transportation
+갈아타다,to transfer,11,Transportation
+저쪽,that way,11,Transportation
+시청,City Hall,11,Transportation
+여의도,Yeouido,11,Transportation
+고속터미널,Express Bus Terminal,11,Transportation
+경주,Gyeongju,11,Transportation
+표,ticket,11,Transportation
+예매하다,to book,11,Transportation
+알아보다,to look into,11,Transportation
+대전,Daejeon,11,Transportation
+이번,this,11,Transportation
+어떻게,how,11,Transportation
+서울역,Seoul Station,11,Transportation
+살다,to live,11,Transportation
+걸어오다,to walk over,11,Transportation
+호선,line number,11,Transportation
+걸어가다,to walk,11,Transportation
+가깝다,to be near,11,Transportation
+멀다,to be far,11,Transportation
+걸리다,to take,11,Transportation
+기다리다,to wait,11,Transportation
+건너편,other side,11,Transportation
+건물,building,11,Transportation
+박물관,museum,11,Transportation
+전시회,exhibition,11,Transportation
+이쪽,this way,11,Transportation
+그쪽,that way,11,Transportation
+저쪽,that way (over there),11,Transportation
+왼쪽,left,11,Transportation
+오른쪽,right,11,Transportation
+걸어서,on foot,11,Transportation
+섬진강 기차마을,Seomjingang Train Village,11,Transportation
+옛날,long ago,11,Transportation
+춘천,Chuncheon,11,Transportation
+닭갈비,dakgalbi,11,Transportation
+메시지를 보내다,to send a text,12,Telephone
+영상 통화,video call,12,Telephone
+여보세요,Hello?,12,Telephone
+대답,answer,12,Telephone
+전화를 받다,to answer the phone,12,Telephone
+메시지를 받다,to receive a text,12,Telephone
+전화번호,phone number,12,Telephone
+찾아보다,to look up,12,Telephone
+공,zero,12,Telephone
+사무실,office,12,Telephone
+잘 지내다,to be fine,12,Telephone
+오랜만이에요,Long time no see / talk,12,Telephone
+다,all,12,Telephone
+건강하다,to be healthy,12,Telephone
+괜찮다,to be fine,12,Telephone
+통화,call,12,Telephone
+나중,later,12,Telephone
+이모티콘,emoticon,12,Telephone
+준비하다,to prepare,12,Telephone
+시험을 보다,to take a test,12,Telephone
+점수가 좋다,to score well,12,Telephone
+기분이 좋다,to feel good,12,Telephone
+친구하고 놀다,to hang out with a friend,12,Telephone
+늦잠을 자다,to sleep in,12,Telephone
+길이 막히다,to be stuck in traffic,12,Telephone
+부탁이 있다,to ask a favor,12,Telephone
+죄송하다,to be sorry,12,Telephone
+그저께,the day before yesterday,12,Telephone
+모레,the day after tomorrow,12,Telephone
+퇴근,get off work,12,Telephone
+장소,place,12,Telephone
+잘못,wrong,12,Telephone
+신촌,Sinchon,12,Telephone
+할머니,grandmother,12,Telephone
+전,before,12,Telephone
+몰라요,I don’t know,12,Telephone
+그냥,just because,12,Telephone
+숫자,number,12,Telephone
+발음,pronunciation,12,Telephone
+따라 하다,to repeat,12,Telephone
+또,again,12,Telephone
+모르다,to not know,12,Telephone
+물어보다,to ask,12,Telephone
+키가 크다,to be tall,13,Clothes & Appearances
+키가 작다,to be short (height),13,Clothes & Appearances
+길다,to be long,13,Clothes & Appearances
+짧다,to be short (length),13,Clothes & Appearances
+높다,to be high,13,Clothes & Appearances
+낮다,to be low,13,Clothes & Appearances
+멋있다,to be cool,13,Clothes & Appearances
+입다,to put on / wear,13,Clothes & Appearances
+신다,to slip on / wear,13,Clothes & Appearances
+쓰다,to wear / put on,13,Clothes & Appearances
+벗다,to take off,13,Clothes & Appearances
+세일하다,to be on sale,13,Clothes & Appearances
+갑자기,suddenly,13,Clothes & Appearances
+옷 가게,clothing store,13,Clothes & Appearances
+남대문시장,Namdaemun Market,13,Clothes & Appearances
+파티,party,13,Clothes & Appearances
+보여 주다,to show,13,Clothes & Appearances
+머리,hair,13,Clothes & Appearances
+바지,pants,13,Clothes & Appearances
+치마,skirt,13,Clothes & Appearances
+코트,coat,13,Clothes & Appearances
+티셔츠,t-shirt,13,Clothes & Appearances
+원피스,dress,13,Clothes & Appearances
+한복,hanbok,13,Clothes & Appearances
+운동화,sneakers,13,Clothes & Appearances
+구두,dress shoes,13,Clothes & Appearances
+편하다,to be comfortable,13,Clothes & Appearances
+불편하다,to be uncomfortable,13,Clothes & Appearances
+두껍다,to be thick,13,Clothes & Appearances
+얇다,to be thin,13,Clothes & Appearances
+사계절,four seasons,13,Clothes & Appearances
+곳,place,13,Clothes & Appearances
+팔다,to sell,13,Clothes & Appearances
+프로그램,program,13,Clothes & Appearances
+양복,suit,13,Clothes & Appearances
+남산,Namsan Mountain,13,Clothes & Appearances
+초대하다,to invite,14,Invitation & Plans
+축하하다,to congratulate,14,Invitation & Plans
+기쁘다,to be glad,14,Invitation & Plans
+선물을 주다,to give a gift,14,Invitation & Plans
+선물을 받다,to receive a gift,14,Invitation & Plans
+식사하다,to eat,14,Invitation & Plans
+파티하다,to party,14,Invitation & Plans
+양복을 입다,to wear a suit,14,Invitation & Plans
+늦다,to be late,14,Invitation & Plans
+바꾸다,to change,14,Invitation & Plans
+팀,team,14,Invitation & Plans
+이사하다,to move,14,Invitation & Plans
+결혼,wedding,14,Invitation & Plans
+결혼식,wedding ceremony,14,Invitation & Plans
+혼자,alone,14,Invitation & Plans
+함께,together,14,Invitation & Plans
+근처,nearby,14,Invitation & Plans
+춤추다,to dance,14,Invitation & Plans
+친하다,to be close,14,Invitation & Plans
+지내다,to spend (time),14,Invitation & Plans
+들어오다,to come in,14,Invitation & Plans
+들어가다,to go in,14,Invitation & Plans
+울다,to cry,14,Invitation & Plans
+웃다,to laugh,14,Invitation & Plans
+시작하다,to start,14,Invitation & Plans
+한달,one month,14,Invitation & Plans
+번,time(s),14,Invitation & Plans
+마트,supermarket,14,Invitation & Plans
+노래하다,to sing,14,Invitation & Plans
+가족,family,15,Family
+할아버지,grandfather,15,Family
+할머니,grandmother,15,Family
+아버지,father,15,Family
+어머니,mother,15,Family
+부모님,parents,15,Family
+형,older brother (male),15,Family
+누나,older sister (male),15,Family
+나,I (informal),15,Family
+오빠,older brother (female),15,Family
+언니,older sister (female),15,Family
+동생,younger sibling,15,Family
+남편,husband,15,Family
+아내,wife,15,Family
+아들,son,15,Family
+딸,daughter,15,Family
+이분,this person (formal),15,Family
+꽃,flower,15,Family
+남동생,younger brother,15,Family
+강릉,Gangneung,15,Family
+특히,especially,15,Family
+중,among,15,Family
+고양이,cat,15,Family
+되다,to become,15,Family
+영상,video,15,Family
+생일,birthday,15,Family
+집,house,15,Family
+이름,name,15,Family
+있다,to be,15,Family
+먹다,to eat,15,Family
+마시다,to drink,15,Family
+자다,to sleep,15,Family
+명,person,15,Family
+나이,age,15,Family
+걷다,to walk,15,Family
+듣다,to hear,15,Family
+생각(을) 하다,to think,15,Family
+수학,mathematics,15,Family
+음악,music,15,Family
+싸우다,to fight,15,Family
+휴가,vacation,15,Family
+보내다,to spend,15,Family
+지난여름,last summer,15,Family
+여권,passport,16,Travel
+돈을 바꾸다,to exchange money,16,Travel
+돈을 찾다,to withdraw money,16,Travel
+출발하다,to depart,16,Travel
+도착하다,to arrive,16,Travel
+호텔,hotel,16,Travel
+보이다,to be seen,16,Travel
+빌리다,to rent,16,Travel
+돌아오다,to come back,16,Travel
+돌아가다,to go back,16,Travel
+도와드리다,to help,16,Travel
+알겠습니다,okay,16,Travel
+호,room number,16,Travel
+우산,umbrella,16,Travel
+카드 키,card key,16,Travel
+수건,towel,16,Travel
+나오다,to come out,16,Travel
+올레길,Olle Trail,16,Travel
+해운대,Haeundae,16,Travel
+설악산,Seoraksan Mountain,16,Travel
+불국사,Bulguksa Temple,16,Travel
+잠깐만,hang on,16,Travel
+시내,city (downtown),16,Travel
+한가하다,to be tranquil,16,Travel
+조용하다,to be quiet,16,Travel
+아름답다,to be beautiful,16,Travel
+유명하다,to be famous,16,Travel
+특별하다,to be special,16,Travel
+복잡하다,to be crowded,16,Travel
+안내,guide,16,Travel
+적다,to be few,16,Travel
+한라산,Hallasan Mountain,16,Travel
+한번,try something out,16,Travel
+올라가다,to go up,16,Travel
+강원도,Gangwon-do,16,Travel
+경치,view,16,Travel
+생선회,raw fish,16,Travel
+고속버스,express bus,16,Travel
+케이블카,cable car,16,Travel
+다음 날,next day,16,Travel
+힘들다,to be tired,9,Hospital
+동생,younger sibling,9,Hospital
+편지,letter,9,Hospital
+기분,feeling,9,Hospital
+괜찮다,to be fine,9,Hospital
+약,medicine,9,Hospital
+이태원,Itaewon,9,Hospital
+놀다,to hang out,9,Hospital
+수영장,pool,9,Hospital
+이렇게,like this,9,Hospital
+선물,present,9,Hospital
+받다,to receive,9,Hospital
+급,level,9,Hospital
+술,alcohol,9,Hospital
+어제저녁,last evening,9,Hospital
+걱정,worry,9,Hospital
+도와주다,to help,9,Hospital
+주다,to give,9,Hospital
+죄송하다,to be sorry,9,Hospital
+시작하다,to start,9,Hospital
+일,work,10,Korean Life
+계속,continuously,10,Korean Life
+여행 작가,travel writer,10,Korean Life
+한복,Hanbok,10,Korean Life
+전통,tradition,10,Korean Life
+팬,fan,10,Korean Life
+운동장,athletic ﬁeld,10,Korean Life
+이번,this (time),10,Korean Life
+콘서트,concert,10,Korean Life
+뉴욕,New York,10,Korean Life
+항상,always,10,Korean Life
+근처,nearby,11,Transportation
+번,number,11,Transportation
+서울역,Seoul Station,11,Transportation
+어떻게,how,11,Transportation
+장소,location,11,Transportation
+신촌,Sinchon,11,Transportation
+시청,City Hall,11,Transportation
+여의도,Yeouido,11,Transportation
+고속터미널,Express Bus Terminal,11,Transportation
+잠실,Jamsil,11,Transportation
+호선,line number,11,Transportation
+층,floor,11,Transportation
+비행기표,airplane ticket,11,Transportation
+알아보다,to look into,11,Transportation
+극장,(movie) theater,11,Transportation
+다,all,11,Transportation
+문화,culture,11,Transportation
+축제,festival,11,Transportation
+길,street,11,Transportation
+얼마나,how long,11,Transportation
+하지만,but,11,Transportation
+멕시코,Mexico,11,Transportation
+시험공부,studying for a test,11,Transportation
+준비하다,to prepare,11,Transportation
+여름옷,summer clothes,11,Transportation
+전,before,12,Telephone
+알다,to know,12,Telephone
+물어보다,to ask,12,Telephone
+새,new,12,Telephone
+모르다,to don’t know,12,Telephone
+싸우다,to ﬁght,12,Telephone
+대학원,grad(udate) school,12,Telephone
+두번,twice,12,Telephone
+설날,Lunar New Year’s Day,12,Telephone
+기간,period,12,Telephone
+신발,shoe(s),13,Clothes & Appearances
+조용하다,to be quiet,13,Clothes & Appearances
+발음,pronunciation,13,Clothes & Appearances
+어떤,what,13,Clothes & Appearances
+슬프다,to be sad,13,Clothes & Appearances
+잠깐만,just a moment,13,Clothes & Appearances
+겨울옷,winter clothes,13,Clothes & Appearances
+결혼식,wedding ceremony,13,Clothes & Appearances
+살다,to live,13,Clothes & Appearances
+팔다,to sell,13,Clothes & Appearances
+열다,to open,13,Clothes & Appearances
+곳,place,13,Clothes & Appearances
+빌리다,to borrow,14,Invitation & Plans
+외국어,foreign language,14,Invitation & Plans
+거울,mirror,14,Invitation & Plans
+여동생,younger sister,15,Family
+사랑하다,to love,15,Family
+중,among,15,Family
+군인,soldier,15,Family
+화장품,makeup,15,Family
+드리다,to give (honorific expression),15,Family
+같다,to be the same,15,Family
+인사하다,问候,15,Family
+꽃집,花店,15,Family
+인터넷,网络,15,Family
+음악,音乐,15,Family
+걸어서 가다,走着去,15,Family
+남동생,弟弟,15,Family
+단어,word,16,Travel
+질문,question,16,Travel
+칠판,blackboard / whiteboard,16,Travel
+반지,ring,16,Travel
+닫다,to close,16,Travel
+눈사람,snowman,16,Travel
+한라산,Hallasan Mountain,16,Travel

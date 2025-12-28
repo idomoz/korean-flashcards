@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useSwipeable } from 'react-swipeable'
-import { vocabulary } from './data/vocabulary'
+import { vocabulary, chapters } from './data/vocabulary'
 
 function shuffleArray(arr) {
   const result = [...arr]
@@ -13,7 +13,7 @@ function shuffleArray(arr) {
   return result
 }
 
-function SettingsScreen({ book, setBook, lang, setLang, onStart, count }) {
+function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, onStart, count, availableChapters }) {
   return (
     <div className="h-full bg-gray-900 flex flex-col items-center justify-center p-4 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] overflow-auto">
       <div className="bg-gray-800 rounded-3xl shadow-2xl p-6 w-full max-w-md my-auto">
@@ -30,7 +30,7 @@ function SettingsScreen({ book, setBook, lang, setLang, onStart, count }) {
               {['1A', '1B', 'All'].map((b) => (
                 <button
                   key={b}
-                  onClick={() => setBook(b)}
+                  onClick={() => { setBook(b); setChapter('all'); }}
                   className={`py-3 px-3 rounded-xl font-bold text-base transition-all duration-200 ${
                     book === b
                       ? 'bg-indigo-600 text-white shadow-lg scale-105'
@@ -41,8 +41,40 @@ function SettingsScreen({ book, setBook, lang, setLang, onStart, count }) {
                 </button>
               ))}
             </div>
-            <p className="text-center text-sm text-gray-500 mt-2">{count} cards available</p>
           </div>
+
+          {book !== 'All' && availableChapters.length > 0 && (
+            <div>
+              <label className="block text-sm font-semibold text-gray-300 mb-3">Select Chapter</label>
+              <div className="grid grid-cols-2 gap-2 max-h-36 overflow-y-auto">
+                <button
+                  onClick={() => setChapter('all')}
+                  className={`py-2 px-3 rounded-lg text-sm transition-all duration-200 ${
+                    chapter === 'all'
+                      ? 'bg-indigo-600 text-white shadow-lg'
+                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  }`}
+                >
+                  All Chapters
+                </button>
+                {availableChapters.map((ch) => (
+                  <button
+                    key={ch.id}
+                    onClick={() => setChapter(ch.id)}
+                    className={`py-2 px-3 rounded-lg text-sm transition-all duration-200 text-left truncate ${
+                      chapter === ch.id
+                        ? 'bg-indigo-600 text-white shadow-lg'
+                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    }`}
+                  >
+                    {ch.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <p className="text-center text-sm text-gray-500">{count} cards available</p>
 
           <div>
             <label className="block text-sm font-semibold text-gray-300 mb-3">Show First</label>
@@ -129,6 +161,7 @@ function FlashcardView({ card, lang, flipped, onFlip, cardLang }) {
 
 function App() {
   const [book, setBook] = useState(() => localStorage.getItem('flashcard-book') || '1A')
+  const [chapter, setChapter] = useState(() => localStorage.getItem('flashcard-chapter') || 'all')
   const [lang, setLang] = useState(() => localStorage.getItem('flashcard-lang') || 'korean')
   const [showSettings, setShowSettings] = useState(true)
   const [cards, setCards] = useState([])
@@ -141,7 +174,24 @@ function App() {
   const [startX, setStartX] = useState(0)
   const [cardLang, setCardLang] = useState('korean')
 
-  const cardCount = vocabulary[book]?.length || 0
+  const availableChapters = book !== 'All' ? (chapters[book] || []) : []
+  
+  // Filter vocabulary by chapter and remove duplicates when showing all chapters
+  const getFilteredVocabulary = useCallback(() => {
+    const data = vocabulary[book] || []
+    if (book === 'All' || chapter === 'all') {
+      // Remove duplicates when showing all chapters
+      const seen = new Set()
+      return data.filter(item => {
+        if (seen.has(item.korean)) return false
+        seen.add(item.korean)
+        return true
+      })
+    }
+    return data.filter(item => item.chapter === chapter)
+  }, [book, chapter])
+
+  const cardCount = getFilteredVocabulary().length
 
   const getRandomLang = () => Math.random() < 0.5 ? 'korean' : 'english'
 
@@ -150,15 +200,19 @@ function App() {
   }, [book])
 
   useEffect(() => {
+    localStorage.setItem('flashcard-chapter', chapter)
+  }, [chapter])
+
+  useEffect(() => {
     localStorage.setItem('flashcard-lang', lang)
   }, [lang])
 
   useEffect(() => {
-    const data = vocabulary[book] || []
+    const data = getFilteredVocabulary()
     setCards(shuffleArray(data))
     setIdx(0)
     setFlipped(false)
-  }, [book])
+  }, [book, chapter, getFilteredVocabulary])
 
   const prevCard = () => {
     if (slideOut) return
@@ -190,20 +244,20 @@ function App() {
   const flipCard = useCallback(() => setFlipped((f) => !f), [])
 
   const startLearning = useCallback(() => {
-    setCards(shuffleArray(vocabulary[book] || []))
+    setCards(shuffleArray(getFilteredVocabulary()))
     setIdx(0)
     setFlipped(false)
     setShowSettings(false)
     setCardLang(lang === 'random' ? getRandomLang() : lang)
-  }, [book, lang])
+  }, [lang, getFilteredVocabulary])
 
   const goBack = useCallback(() => setShowSettings(true), [])
 
   const reshuffleCards = useCallback(() => {
-    setCards(shuffleArray(vocabulary[book] || []))
+    setCards(shuffleArray(getFilteredVocabulary()))
     setIdx(0)
     setFlipped(false)
-  }, [book])
+  }, [getFilteredVocabulary])
 
   const swipeConfig = useSwipeable({
     onSwiping: (e) => {
@@ -262,10 +316,13 @@ function App() {
       <SettingsScreen
         book={book}
         setBook={setBook}
+        chapter={chapter}
+        setChapter={setChapter}
         lang={lang}
         setLang={setLang}
         onStart={startLearning}
         count={cardCount}
+        availableChapters={availableChapters}
       />
     )
   }
@@ -286,7 +343,11 @@ function App() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
         </button>
-        <h1 className="text-white font-semibold">{book === 'All' ? 'All Books' : `Book ${book}`}</h1>
+        <h1 className="text-white font-semibold text-sm text-center">
+          {book === 'All' ? 'All Books' : chapter !== 'all' 
+            ? availableChapters.find(c => c.id === chapter)?.name || `Book ${book}`
+            : `Book ${book}`}
+        </h1>
         <button onClick={reshuffleCards} className="text-white hover:bg-white/20 p-2 rounded-lg transition-colors">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />

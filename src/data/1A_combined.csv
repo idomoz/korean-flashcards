@@ -1,0 +1,488 @@
+korean,english,chapter,chapterName
+한국,Korea,1,Greetings
+미국,United States of America,1,Greetings
+중국,China,1,Greetings
+일본,Japan,1,Greetings
+프랑스,France,1,Greetings
+러시아,Russia,1,Greetings
+브라질,Brazil,1,Greetings
+말레이시아,Malaysia,1,Greetings
+몽골,Mongolia,1,Greetings
+베트남,Vietnam,1,Greetings
+나라,country,1,Greetings
+한국 사람,Korean,1,Greetings
+미국 사람,American,1,Greetings
+중국 사람,Chinese,1,Greetings
+일본 사람,Japanese,1,Greetings
+프랑스 사람,French,1,Greetings
+러시아 사람,Russian,1,Greetings
+브라질 사람,Brazilian,1,Greetings
+말레이시아 사람,Malaysian,1,Greetings
+몽골 사람,Mongolian,1,Greetings
+베트남 사람,Vietnamese,1,Greetings
+사람,person,1,Greetings
+저,I (formal),1,Greetings
+안녕하세요,Hello,1,Greetings
+씨,Mr. / Mrs. / Ms. / Miss,1,Greetings
+(만나서) 반가워요,Nice to meet you,1,Greetings
+어느,which,1,Greetings
+네,Yes,1,Greetings
+인도,India,1,Greetings
+친구,friend / classmate,1,Greetings
+호주,Australia,1,Greetings
+태국,Thailand,1,Greetings
+선생님,teacher,1,Greetings
+학생,student,1,Greetings
+기자,reporter,1,Greetings
+의사,doctor,1,Greetings
+배우,actor / actress,1,Greetings
+대학생,college student,1,Greetings
+회사원,office worker,1,Greetings
+가수,singer,1,Greetings
+프로그래머,programmer,1,Greetings
+요리사,chef,1,Greetings
+운동선수,athlete,1,Greetings
+아니요,No,1,Greetings
+대학원생,grad(uate) student,1,Greetings
+제,my (formal),1,Greetings
+룸메이트,roommate,1,Greetings
+이름,name,1,Greetings
+뭐,what,1,Greetings
+직업,occupation,1,Greetings
+메일,email,1,Greetings
+주소,address,1,Greetings
+여러분,everyone,1,Greetings
+교실,classroom,2,Classroom & Room
+창문,window,2,Classroom & Room
+컴퓨터,computer,2,Classroom & Room
+책상,desk,2,Classroom & Room
+시계,clock,2,Classroom & Room
+의자,chair,2,Classroom & Room
+가방,bag,2,Classroom & Room
+공책,notebook,2,Classroom & Room
+휴대폰,cell phone,2,Classroom & Room
+책,book,2,Classroom & Room
+지우개,eraser,2,Classroom & Room
+볼펜,ballpoint pen,2,Classroom & Room
+필통,pencil case,2,Classroom & Room
+연필,pencil,2,Classroom & Room
+한국어,Korean (language),2,Classroom & Room
+누구,who,2,Classroom & Room
+한국어로,in Korean,2,Classroom & Room
+중국어로,in Chinese,2,Classroom & Room
+그럼,then,2,Classroom & Room
+집,house,2,Classroom & Room
+화장실,bathroom,2,Classroom & Room
+부엌,kitchen,2,Classroom & Room
+방,room,2,Classroom & Room
+침대,bed,2,Classroom & Room
+노트북,laptop,2,Classroom & Room
+세탁기,washing machine,2,Classroom & Room
+냉장고,refrigerator,2,Classroom & Room
+텔레비전,television (TV),2,Classroom & Room
+에어컨,air conditioner (AC),2,Classroom & Room
+서울대학교,Seoul National University,2,Classroom & Room
+학교,school,2,Classroom & Room
+기숙사,dorm(itory),2,Classroom & Room
+옷걸이,hanger,2,Classroom & Room
+여기,here,2,Classroom & Room
+우리,our,2,Classroom & Room
+저기,there,2,Classroom & Room
+소파,sofa,2,Classroom & Room
+거울,mirror,2,Classroom & Room
+와이파이,Wi-Fi,2,Classroom & Room
+음식,food,3,Store
+빵,bread,3,Store
+샌드위치,sandwich,3,Store
+과일,fruit,3,Store
+사과,apple,3,Store
+딸기,strawberry,3,Store
+수박,watermelon,3,Store
+음료수,drink,3,Store
+물,water,3,Store
+우유,milk,3,Store
+커피,coffee,3,Store
+차,tea,3,Store
+주스,juice,3,Store
+어서 오세요,Welcome,3,Store
+케이크,cake,3,Store
+초콜릿,chocolate,3,Store
+빙수,shaved ice,3,Store
+녹차,green tea,3,Store
+아이스크림,ice cream,3,Store
+오렌지,orange,3,Store
+여기 있어요,Here you go,3,Store
+키위,kiwi,3,Store
+햄,ham,3,Store
+가게,store,3,Store
+망고,mango,3,Store
+어디,where,3,Store
+문구점,stationery store,3,Store
+여기,here,3,Store
+저기,(over) there,3,Store
+거기,there,3,Store
+앞,front,3,Store
+뒤,back,3,Store
+옆,next,3,Store
+위,top,3,Store
+아래(밑),bottom,3,Store
+안,inside,3,Store
+밖,outside,3,Store
+카페,cafe,3,Store
+편의점,convenience store,3,Store
+강남,Gangnam,3,Store
+바나나,banana,3,Store
+안경,(eye)glasses,3,Store
+보다,to see / look,4,Everyday Life
+좋아하다,to like,4,Everyday Life
+사다,to buy,4,Everyday Life
+아르바이트하다,to work part-time,4,Everyday Life
+전화하다,to call,4,Everyday Life
+먹다,to eat,4,Everyday Life
+만나다,to meet,4,Everyday Life
+읽다,to read,4,Everyday Life
+일하다,to work,4,Everyday Life
+마시다,to drink,4,Everyday Life
+공부하다,to study,4,Everyday Life
+배우다,to learn,4,Everyday Life
+운동하다,to exercise,4,Everyday Life
+지금,now,4,Everyday Life
+자다,to sleep,4,Everyday Life
+하고,with,4,Everyday Life
+빵집,bakery,4,Everyday Life
+숙제하다,to do homework,4,Everyday Life
+같이,together,4,Everyday Life
+요리,cooking,4,Everyday Life
+오늘,today,4,Everyday Life
+학교,school,4,Everyday Life
+병원,hospital,4,Everyday Life
+약국,pharmacy,4,Everyday Life
+도서관,library,4,Everyday Life
+식당,restaurant,4,Everyday Life
+우체국,post office,4,Everyday Life
+영화관,movie theater,4,Everyday Life
+서점,bookstore,4,Everyday Life
+공원,park,4,Everyday Life
+백화점,department store,4,Everyday Life
+회사,company,4,Everyday Life
+은행,bank,4,Everyday Life
+스포츠 센터,sports center,4,Everyday Life
+시장,market,4,Everyday Life
+가다,to go,4,Everyday Life
+매일,every day,4,Everyday Life
+그리고,and,4,Everyday Life
+반,class,4,Everyday Life
+들,-s / -es / -ies (plural),4,Everyday Life
+우리,we,4,Everyday Life
+오다,to come,4,Everyday Life
+명동,Myeong-dong,4,Everyday Life
+많이,many,4,Everyday Life
+영화,movie,4,Everyday Life
+내일,tomorrow,4,Everyday Life
+혼자,alone,4,Everyday Life
+옷,clothes,4,Everyday Life
+쇼핑,shopping,4,Everyday Life
+맛있다,to be delicious,5,Restaurant
+맛없다,to not be delicious,5,Restaurant
+재미있다,to be fun,5,Restaurant
+재미없다,to not be fun,5,Restaurant
+많다,to have many,5,Restaurant
+비싸다,to be expensive,5,Restaurant
+싸다,to be inexpensive,5,Restaurant
+좋다,to be good,5,Restaurant
+친절하다,to be friendly,5,Restaurant
+깨끗하다,to be clean,5,Restaurant
+비빔밥,bibimbap,5,Restaurant
+삼겹살,samgyeopsal,5,Restaurant
+불고기,bulgogi,5,Restaurant
+김밥,gimbap,5,Restaurant
+냉면,cold noodles,5,Restaurant
+갈비탕,short rib soup,5,Restaurant
+떡볶이,spicy rice cakes,5,Restaurant
+김치,gimchi,5,Restaurant
+김치찌개,gimchi stew,5,Restaurant
+자주,often,5,Restaurant
+직원,employee,5,Restaurant
+치즈김밥,cheese gimbap,5,Restaurant
+아주,very,5,Restaurant
+라면,ramen / instant noodles,5,Restaurant
+우동,udon,5,Restaurant
+그런데,by the way,5,Restaurant
+메뉴,menu,5,Restaurant
+콜라,cola,5,Restaurant
+사이다,soda,5,Restaurant
+햄버거,hamburger,5,Restaurant
+피자,pizza,5,Restaurant
+스파게티,spaghetti,5,Restaurant
+판,counter for a whole pizza,5,Restaurant
+그래서,so,5,Restaurant
+모두,all,5,Restaurant
+월요일,Monday,6,Dates & Days of the Week
+화요일,Tuesday,6,Dates & Days of the Week
+수요일,Wednesday,6,Dates & Days of the Week
+목요일,Thursday,6,Dates & Days of the Week
+금요일,Friday,6,Dates & Days of the Week
+토요일,Saturday,6,Dates & Days of the Week
+일요일,Sunday,6,Dates & Days of the Week
+평일,weekday,6,Dates & Days of the Week
+주말,weekend,6,Dates & Days of the Week
+어제,yesterday,6,Dates & Days of the Week
+오늘,today,6,Dates & Days of the Week
+내일,tomorrow,6,Dates & Days of the Week
+지난주,last week,6,Dates & Days of the Week
+이번 주,this week,6,Dates & Days of the Week
+다음 주,next week,6,Dates & Days of the Week
+아침,morning,6,Dates & Days of the Week
+점심,afternoon,6,Dates & Days of the Week
+저녁,evening,6,Dates & Days of the Week
+시간,time,6,Dates & Days of the Week
+태권도,Taekwondo,6,Dates & Days of the Week
+약속,plans,6,Dates & Days of the Week
+무슨,what,6,Dates & Days of the Week
+요일,day of the week,6,Dates & Days of the Week
+노래방,noraebang (singing room),6,Dates & Days of the Week
+일월,January,6,Dates & Days of the Week
+이월,February,6,Dates & Days of the Week
+삼월,March,6,Dates & Days of the Week
+사월,April,6,Dates & Days of the Week
+오월,May,6,Dates & Days of the Week
+유월,June,6,Dates & Days of the Week
+칠월,July,6,Dates & Days of the Week
+팔월,August,6,Dates & Days of the Week
+구월,September,6,Dates & Days of the Week
+시월,October,6,Dates & Days of the Week
+십일월,November,6,Dates & Days of the Week
+십이월,December,6,Dates & Days of the Week
+월,month,6,Dates & Days of the Week
+일,day,6,Dates & Days of the Week
+며칠,what date,6,Dates & Days of the Week
+구경하다,to watch,6,Dates & Days of the Week
+등산하다,to hike,6,Dates & Days of the Week
+빨래하다,to do laundry,6,Dates & Days of the Week
+사진을 찍다,to take a photo,6,Dates & Days of the Week
+산책하다,to take a walk,6,Dates & Days of the Week
+쇼핑하다,to shop,6,Dates & Days of the Week
+청소하다,to clean,6,Dates & Days of the Week
+밥,meal,6,Dates & Days of the Week
+항상,always,6,Dates & Days of the Week
+그런데,but,6,Dates & Days of the Week
+제주도,Jeju Island,6,Dates & Days of the Week
+바다,beach,6,Dates & Days of the Week
+보통,usually,6,Dates & Days of the Week
+이태원,Itaewon,6,Dates & Days of the Week
+인사동,Insa-dong,6,Dates & Days of the Week
+부산,Busan,6,Dates & Days of the Week
+언제,when,6,Dates & Days of the Week
+날짜,date,6,Dates & Days of the Week
+대사관,embassy,6,Dates & Days of the Week
+가르치다,to teach,6,Dates & Days of the Week
+일어나다,to get up,7,Time
+세수하다,to wash one’s face,7,Time
+이를 닦다,to brush one’s teeth,7,Time
+화장하다,to put on makeup,7,Time
+옷을 입다,to wear clothes,7,Time
+샤워하다,to shower,7,Time
+요리하다,to cook,7,Time
+이야기하다,to talk,7,Time
+빨리,quickly,7,Time
+천천히,slowly,7,Time
+조금,a little,7,Time
+많이,a lot,7,Time
+일찍,early,7,Time
+늦게,late,7,Time
+쯤,about / approximately,7,Time
+요가,yoga,7,Time
+회의하다,to hold a meeting,7,Time
+수업,class,7,Time
+요즘,these days,7,Time
+근처,nearby,7,Time
+생활,life,7,Time
+수업이 끝나다,class is over,7,Time
+시험이 끝나다,test is over,7,Time
+여행하다,to travel,7,Time
+캠핑을 하다,to go camping,7,Time
+축구하다,to play soccer,7,Time
+농구하다,to play basketball,7,Time
+야구하다,to play baseball,7,Time
+수영하다,to swim,7,Time
+테니스 치다,to play tennis,7,Time
+골프 치다,to play golf,7,Time
+한강,Hangang / Han River,7,Time
+캠핑장,campsite,7,Time
+정말,really,7,Time
+먼저,first,7,Time
+한복,hanbok,7,Time
+빌리다,to rent,7,Time
+경복궁,Gyeongbokgung Palace,7,Time
+밤,night,7,Time
+힘들다,to be hard / tough,7,Time
+날씨,weather,8,Weather
+맑다,to be sunny,8,Weather
+흐리다,to be cloudy,8,Weather
+비가 오다,to rain,8,Weather
+눈이 오다,to snow,8,Weather
+따뜻하다,to be warm,8,Weather
+시원하다,to be cool,8,Weather
+바람이 불다,to be windy,8,Weather
+계절,season,8,Weather
+봄,spring,8,Weather
+여름,summer,8,Weather
+가을,fall / autumn,8,Weather
+겨울,winter,8,Weather
+어때요,How is it,8,Weather
+이따,later,8,Weather
+테니스장,tennis court,8,Weather
+스키장,ski resort,8,Weather
+강원도,Gangwon-do (Province),8,Weather
+예뻐요,It’s pretty,8,Weather
+춥다,to be cold,8,Weather
+덥다,to be hot,8,Weather
+어렵다,to be difficult,8,Weather
+쉽다,to be easy,8,Weather
+무겁다,to be heavy,8,Weather
+가볍다,to be light,8,Weather
+맵다,to be spicy,8,Weather
+무섭다,to be scary,8,Weather
+귀엽다,to be cute,8,Weather
+방학,(school) break,8,Weather
+스키(를) 타다,to ski,8,Weather
+처음,for the first time,8,Weather
+하늘,sky,8,Weather
+강아지,puppy,8,Weather
+계속,continuously,8,Weather
+나가다,to go out,8,Weather
+시험,test,8,Weather
+하지만,but,8,Weather
+서울,Seoul,8,Weather
+방콕,Bangkok,8,Weather
+저,I (formal),1,Greetings
+씨,Mr. / Mrs. / Ms. / Miss,1,Greetings
+어느,which,1,Greetings
+친구,friend / classmate / partner,1,Greetings
+인도,India,1,Greetings
+호주,Australia,1,Greetings
+태국,Thailand,1,Greetings
+안녕하세요,Hello,1,Greetings
+만나서 반가워요,Nice to meet you,1,Greetings
+이름,name,1,Greetings
+뭐,what,1,Greetings
+직업,occupation,1,Greetings
+명함,business card,1,Greetings
+대학원생,grad(uate) student,1,Greetings
+화가,painter,1,Greetings
+축구,soccer / football,1,Greetings
+독일,Germany,1,Greetings
+네,Yes,1,Greetings
+아니요,No,1,Greetings
+영국,England,1,Greetings
+우산,umbrella,2,Classroom & Room
+한국어,Korean (language),2,Classroom & Room
+한국어로,in Korean,2,Classroom & Room
+영어로,in English,2,Classroom & Room
+중국어로,in Chinese,2,Classroom & Room
+지갑,wallet,2,Classroom & Room
+사전,dictionary,2,Classroom & Room
+우리,our,2,Classroom & Room
+여기,here,2,Classroom & Room
+남자,man,2,Classroom & Room
+음식,food,2,Classroom & Room
+비빔밥,bibimbap,2,Classroom & Room
+숙제,homework,2,Classroom & Room
+룸메이트,roommate,2,Classroom & Room
+교통 카드,transportation card,2,Classroom & Room
+돈,money,2,Classroom & Room
+키위,kiwi,3,Store
+오렌지,orange,3,Store
+케이크,cake,3,Store
+카페,cafe,3,Store
+아이스크림,ice cream,3,Store
+메뉴,menu,3,Store
+좀,please,3,Store
+여기 있어요,Here you go,3,Store
+김치,kimchi,3,Store
+휴지,tissue,3,Store
+어디,where,3,Store
+빵집,bakery,3,Store
+서울대학교,Seoul National University,3,Store
+여자,woman,3,Store
+편의점,convenience store,3,Store
+지금,now,3,Store
+광화문,Gwanghwamun,3,Store
+서점,bookstore,3,Store
+강남,Gangnam,3,Store
+안경,(eye)glasses,3,Store
+자다,to sleep,4,Everyday Life
+쉬다,to rest,4,Everyday Life
+오늘,today,4,Everyday Life
+드라마,drama,4,Everyday Life
+옷,clothes,4,Everyday Life
+미용실,hair salon,4,Everyday Life
+가다,to go,4,Everyday Life
+오다,to come,4,Everyday Life
+고향,hometown,4,Everyday Life
+매일,every day,4,Everyday Life
+혼자,alone,4,Everyday Life
+영화,movie,4,Everyday Life
+기숙사,dorm(itory),5,Restaurant
+고기,meat,5,Restaurant
+라면,ramen,5,Restaurant
+그리고,and,5,Restaurant
+아주,very,5,Restaurant
+초콜릿,chocolate,5,Restaurant
+일본어,Japanese,6,Dates & Days of the Week
+가르치다,to teach,6,Dates & Days of the Week
+쇼핑,shopping,6,Dates & Days of the Week
+언제,when,6,Dates & Days of the Week
+요리,cooking,6,Dates & Days of the Week
+모자,hat,6,Dates & Days of the Week
+시험,test,6,Dates & Days of the Week
+크리스마스,Christmas,6,Dates & Days of the Week
+하고,with,6,Dates & Days of the Week
+운전하다,to drive,6,Dates & Days of the Week
+방학,(school) break,6,Dates & Days of the Week
+바다,beach,6,Dates & Days of the Week
+점심,lunch,6,Dates & Days of the Week
+모두,all,6,Dates & Days of the Week
+노래하다,to sing,6,Dates & Days of the Week
+노래방,noraebang,6,Dates & Days of the Week
+돌하르방,dolhareubang,6,Dates & Days of the Week
+제주도,Jeju Island,6,Dates & Days of the Week
+밤,night,7,Time
+아직,not yet,7,Time
+번,time(s),7,Time
+보통,usually,7,Time
+밥,rice,7,Time
+쯤,about,7,Time
+회의,meeting,7,Time
+세일,sale,7,Time
+쪽,page,7,Time
+그럼,then,7,Time
+부산,Busan,7,Time
+캠핑장,campsite,7,Time
+자주,often,7,Time
+정말,really,7,Time
+맞다,to be right,7,Time
+그래서,so,7,Time
+들,plural particle,7,Time
+먼저,first,7,Time
+말하다,to speak,7,Time
+싫다,to not like,7,Time
+적다,to be few / little,7,Time
+똑똑하다,to be smart,7,Time
+피곤하다,to be tired,7,Time
+테니스장,tennis court,7,Time
+경복궁,Gyeongbokgung palace,7,Time
+축하하다,to congratulate,7,Time
+어때요,How is it,8,Weather
+아까,a minute / moment ago,8,Weather
+켜다,to turn on,8,Weather
+어땠어요,How was it,8,Weather
+요즘,these days,8,Weather
+너무,very,8,Weather
+심심하다,to be bored,8,Weather
+인사동,Insa-dong,8,Weather
+앉다,to sit,8,Weather
+문제,problem,8,Weather
+강아지,puppy,8,Weather
+그런데,but,8,Weather
+잘,well,8,Weather
