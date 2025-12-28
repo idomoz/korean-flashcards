@@ -455,24 +455,6 @@ function App() {
     trackMouse: true,
   })
 
-  useEffect(() => {
-    const onKey = (e) => {
-      if (showSettings) return
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault()
-        nextCard()
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault()
-        prevCard()
-      } else if (e.key === 'ArrowUp' || e.key === 'ArrowDown' || e.key === 'Enter') {
-        e.preventDefault()
-        flipCard()
-      }
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [showSettings, nextCard, prevCard, flipCard])
-
   if (showSettings) {
     return (
       <SettingsScreen
