@@ -15,15 +15,15 @@ function shuffleArray(arr) {
 
 function SettingsScreen({ book, setBook, lang, setLang, onStart, count }) {
   return (
-    <div className="h-full bg-gray-900 flex items-center justify-center p-4 overflow-auto">
-      <div className="bg-gray-800 rounded-3xl shadow-2xl p-8 w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="text-6xl mb-4">🇰🇷</div>
-          <h1 className="text-3xl font-bold text-white">Korean Flashcards</h1>
-          <p className="text-gray-400 mt-2">Seoul National University Textbooks</p>
+    <div className="h-full bg-gray-900 flex flex-col items-center justify-center p-4 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] overflow-auto">
+      <div className="bg-gray-800 rounded-3xl shadow-2xl p-6 w-full max-w-md my-auto">
+        <div className="text-center mb-6">
+          <div className="text-5xl mb-3">🇰🇷</div>
+          <h1 className="text-2xl font-bold text-white">Korean Flashcards</h1>
+          <p className="text-gray-400 mt-1 text-sm">Seoul National University Textbooks</p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <label className="block text-sm font-semibold text-gray-300 mb-3">Select Book</label>
             <div className="grid grid-cols-3 gap-3">
@@ -31,7 +31,7 @@ function SettingsScreen({ book, setBook, lang, setLang, onStart, count }) {
                 <button
                   key={b}
                   onClick={() => setBook(b)}
-                  className={`py-4 px-4 rounded-xl font-bold text-lg transition-all duration-200 ${
+                  className={`py-3 px-3 rounded-xl font-bold text-base transition-all duration-200 ${
                     book === b
                       ? 'bg-indigo-600 text-white shadow-lg scale-105'
                       : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
@@ -49,35 +49,35 @@ function SettingsScreen({ book, setBook, lang, setLang, onStart, count }) {
             <div className="grid grid-cols-3 gap-3">
               <button
                 onClick={() => setLang('korean')}
-                className={`py-4 px-4 rounded-xl font-bold transition-all duration-200 ${
+                className={`py-3 px-3 rounded-xl font-bold transition-all duration-200 ${
                   lang === 'korean'
                     ? 'bg-indigo-600 text-white shadow-lg scale-105'
                     : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                 }`}
               >
-                <span className="text-xl block mb-1">한국어</span>
+                <span className="text-lg block">한국어</span>
                 <span className="text-xs opacity-80">Korean</span>
               </button>
               <button
                 onClick={() => setLang('english')}
-                className={`py-4 px-4 rounded-xl font-bold transition-all duration-200 ${
+                className={`py-3 px-3 rounded-xl font-bold transition-all duration-200 ${
                   lang === 'english'
                     ? 'bg-indigo-600 text-white shadow-lg scale-105'
                     : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                 }`}
               >
-                <span className="text-xl block mb-1">ABC</span>
+                <span className="text-lg block">ABC</span>
                 <span className="text-xs opacity-80">English</span>
               </button>
               <button
                 onClick={() => setLang('random')}
-                className={`py-4 px-4 rounded-xl font-bold transition-all duration-200 ${
+                className={`py-3 px-3 rounded-xl font-bold transition-all duration-200 ${
                   lang === 'random'
                     ? 'bg-indigo-600 text-white shadow-lg scale-105'
                     : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                 }`}
               >
-                <span className="text-xl block mb-1">🎲</span>
+                <span className="text-lg block">🎲</span>
                 <span className="text-xs opacity-80">Random</span>
               </button>
             </div>
@@ -86,12 +86,12 @@ function SettingsScreen({ book, setBook, lang, setLang, onStart, count }) {
 
         <button
           onClick={onStart}
-          className="w-full mt-8 bg-indigo-600 text-white font-bold py-4 px-6 rounded-xl hover:bg-indigo-500 transition-all shadow-lg text-lg"
+          className="w-full mt-6 bg-indigo-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-indigo-500 transition-all shadow-lg text-lg"
         >
           Start Learning 🚀
         </button>
 
-        <div className="mt-6 text-center text-sm text-gray-500">
+        <div className="mt-4 text-center text-sm text-gray-500">
           <p>Tap card to flip • Swipe to navigate</p>
         </div>
       </div>
@@ -279,7 +279,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col">
+    <div className="h-full bg-gray-900 flex flex-col">
       <header className="bg-gray-800 px-4 py-3 pt-[calc(0.75rem+env(safe-area-inset-top))] flex items-center justify-between">
         <button onClick={goBack} className="text-white hover:bg-white/20 p-2 rounded-lg transition-colors">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -321,7 +321,7 @@ function App() {
         </div>
       </main>
 
-      <footer className="bg-gray-800 px-4 py-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">
+      <footer className="bg-gray-800 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
         <div className="flex items-center justify-between max-w-sm mx-auto">
           <button onClick={prevCard} className="text-white active:bg-white/20 p-3 rounded-full outline-none select-none transition-all duration-300">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
