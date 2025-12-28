@@ -378,23 +378,28 @@ function App() {
       // Add to known words (most recent first), ensure no duplicates
       setKnownWords(prev => [word, ...prev.filter(w => w !== word)])
       
-      // Show tutorial on first time marking as known
+      // Show tutorial on first time marking as known (with 2 second delay)
       if (!hasSeenKnownTutorial) {
-        setShowKnownTutorial(true)
+        setTimeout(() => {
+          setShowKnownTutorial(true)
+        }, 2000)
       }
       
       // Remove from current cards list and move to next (only when not including known)
+      // Delay for 1 second to show the green checkmark
       if (!includeKnown) {
-        setCards(prev => {
-          const newCards = prev.filter(c => c.korean !== word)
-          if (newCards.length === 0) return newCards
-          // Adjust index if needed
-          if (idx >= newCards.length) {
-            setIdx(0)
-          }
-          return newCards
-        })
-        setFlipped(false)
+        setTimeout(() => {
+          setCards(prev => {
+            const newCards = prev.filter(c => c.korean !== word)
+            if (newCards.length === 0) return newCards
+            // Adjust index if needed
+            if (idx >= newCards.length) {
+              setIdx(0)
+            }
+            return newCards
+          })
+          setFlipped(false)
+        }, 1000)
       }
     }
   }, [idx, includeKnown, knownWords, hasSeenKnownTutorial])
@@ -792,7 +797,7 @@ function App() {
               onFlip={flipCard} 
               cardLang={cardLang}
               onMarkKnown={markWordKnown}
-              isKnown={includeKnown && knownWords.includes(cards[idx].korean)}
+              isKnown={knownWords.includes(cards[idx].korean)}
             />
           </div>
         </div>
