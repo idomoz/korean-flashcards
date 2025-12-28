@@ -647,7 +647,8 @@ function App() {
             <div className="flex-1 overflow-y-auto space-y-2 min-h-0">
               {knownWords.filter(word => {
                 if (!knownWordsSearch) return true
-                const search = knownWordsSearch.toLowerCase()
+                const search = knownWordsSearch.trim().replace(/^[^\w\uAC00-\uD7A3]+|[^\w\uAC00-\uD7A3]+$/g, '').toLowerCase()
+                if (!search) return true
                 const entry = vocabulary[book]?.find(v => v.korean === word) || 
                               vocabulary['1A']?.find(v => v.korean === word) || 
                               vocabulary['1B']?.find(v => v.korean === word)
@@ -715,7 +716,8 @@ function App() {
             <div className="flex-1 overflow-y-auto space-y-2 min-h-0">
               {cards.filter(card => {
                 if (!wordListSearch) return true
-                const search = wordListSearch.toLowerCase()
+                const search = wordListSearch.trim().replace(/^[^\w\uAC00-\uD7A3]+|[^\w\uAC00-\uD7A3]+$/g, '').toLowerCase()
+                if (!search) return true
                 return card.korean.includes(search) || card.english.toLowerCase().includes(search)
               }).map((card, i) => (
                 <div 
