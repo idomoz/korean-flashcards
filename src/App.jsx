@@ -15,7 +15,7 @@ function shuffleArray(arr) {
 
 function SettingsScreen({ book, setBook, lang, setLang, onStart, count }) {
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+    <div className="h-full bg-gray-900 flex items-center justify-center p-4 overflow-auto">
       <div className="bg-gray-800 rounded-3xl shadow-2xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">🇰🇷</div>
@@ -272,7 +272,7 @@ function App() {
 
   if (cards.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+      <div className="h-full bg-gray-900 flex items-center justify-center">
         <p className="text-white text-xl">No cards available</p>
       </div>
     )
