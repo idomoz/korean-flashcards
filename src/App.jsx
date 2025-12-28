@@ -228,7 +228,7 @@ function App() {
   const [cardLang, setCardLang] = useState('korean')
   const [knownWords, setKnownWords] = useState(() => {
     const stored = localStorage.getItem('flashcard-known-words')
-    return stored ? new Set(JSON.parse(stored)) : new Set()
+    return stored ? JSON.parse(stored) : []
   })
   const [includeKnown, setIncludeKnown] = useState(() => {
     return localStorage.getItem('flashcard-include-known') === 'true'
@@ -262,7 +262,7 @@ function App() {
     
     // Filter out known words unless includeKnown is true
     if (!includeKnown) {
-      data = data.filter(item => !knownWords.has(item.korean))
+      data = data.filter(item => !knownWords.includes(item.korean))
     }
     
     return data
@@ -285,7 +285,7 @@ function App() {
   }, [lang])
 
   useEffect(() => {
-    localStorage.setItem('flashcard-known-words', JSON.stringify([...knownWords]))
+    localStorage.setItem('flashcard-known-words', JSON.stringify(knownWords))
   }, [knownWords])
 
   useEffect(() => {
@@ -352,22 +352,14 @@ function App() {
   }, [getFilteredVocabulary, shuffleMode])
 
   const markWordKnown = useCallback((word) => {
-    const isCurrentlyKnown = knownWords.has(word)
+    const isCurrentlyKnown = knownWords.includes(word)
     
     if (includeKnown && isCurrentlyKnown) {
       // Toggle off - remove from known words
-      setKnownWords(prev => {
-        const newSet = new Set(prev)
-        newSet.delete(word)
-        return newSet
-      })
-    } else {
-      // Add to known words
-      setKnownWords(prev => {
-        const newSet = new Set(prev)
-        newSet.add(word)
-        return newSet
-      })
+      setKnownWords(prev => prev.filter(w => w !== word))
+    } else if (!isCurrentlyKnown) {
+      // Add to known words (most recent first), ensure no duplicates
+      setKnownWords(prev => [word, ...prev.filter(w => w !== word)])
       
       // Show tutorial on first time marking as known
       if (!hasSeenKnownTutorial) {
@@ -391,7 +383,7 @@ function App() {
   }, [idx, includeKnown, knownWords, hasSeenKnownTutorial])
 
   const resetKnownWords = useCallback(() => {
-    setKnownWords(new Set())
+    setKnownWords([])
     setHasSeenKnownTutorial(false)
     localStorage.removeItem('flashcard-seen-known-tutorial')
   }, [])
@@ -595,9 +587,9 @@ function App() {
               
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-400">
-                  {knownWords.size} words marked as known
+                  {knownWords.length} words marked as known
                 </span>
-                {knownWords.size > 0 && (
+                {knownWords.length > 0 && (
                   <button
                     onClick={() => setShowKnownWordsList(true)}
                     className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors"
@@ -644,7 +636,7 @@ function App() {
             />
             
             <div className="flex-1 overflow-y-auto space-y-2 min-h-0">
-              {[...knownWords].sort().filter(word => {
+              {knownWords.filter(word => {
                 if (!knownWordsSearch) return true
                 const search = knownWordsSearch.toLowerCase()
                 const entry = vocabulary[book]?.find(v => v.korean === word) || 
@@ -665,11 +657,7 @@ function App() {
                     </div>
                     <button
                       onClick={() => {
-                        setKnownWords(prev => {
-                          const newSet = new Set(prev)
-                          newSet.delete(word)
-                          return newSet
-                        })
+                        setKnownWords(prev => prev.filter(w => w !== word))
                       }}
                       className="text-red-400 p-1 flex-shrink-0"
                     >
@@ -680,7 +668,7 @@ function App() {
                   </div>
                 )
               })}
-              {knownWords.size === 0 && (
+              {knownWords.length === 0 && (
                 <p className="text-gray-400 text-center py-4">No known words</p>
               )}
             </div>
@@ -718,14 +706,14 @@ function App() {
                 <div 
                   key={`${card.korean}-${i}`} 
                   className={`flex items-center justify-between rounded-lg px-3 py-2 gap-2 ${
-                    knownWords.has(card.korean) ? 'bg-green-900/30 border border-green-700/50' : 'bg-gray-700'
+                    knownWords.includes(card.korean) ? 'bg-green-900/30 border border-green-700/50' : 'bg-gray-700'
                   }`}
                 >
                   <div className="flex-1 min-w-0">
                     <span className="text-white block">{card.korean}</span>
                     <span className="text-gray-400 text-sm block truncate">{card.english}</span>
                   </div>
-                  {knownWords.has(card.korean) && (
+                  {knownWords.includes(card.korean) && (
                     <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
@@ -776,7 +764,7 @@ function App() {
               onFlip={flipCard} 
               cardLang={cardLang}
               onMarkKnown={markWordKnown}
-              isKnown={includeKnown && knownWords.has(cards[idx].korean)}
+              isKnown={includeKnown && knownWords.includes(cards[idx].korean)}
             />
           </div>
         </div>
