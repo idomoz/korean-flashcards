@@ -41,10 +41,6 @@ body {
   transform-style: preserve-3d;
 }
 
-.card-flip-inner.no-flip-transition {
-  transition: none !important;
-}
-
 .card-flip-inner.flipped {
   transform: rotateY(180deg);
 }

@@ -37,10 +37,24 @@ function decomposeKorean(str) {
 }
 
 function koreanIncludes(text, search) {
-  // First try direct match
   if (text.includes(search)) return true
-  // Then try decomposed match for partial syllable
   return decomposeKorean(text).includes(decomposeKorean(search))
+}
+
+function triggerConfetti() {
+  const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3', '#ff69b4', '#00ffff', '#ffd700']
+  const confettiConfig = {
+    particleCount: 100,
+    spread: 60,
+    colors,
+    startVelocity: 35,
+    gravity: 0.6,
+    decay: 0.94,
+    ticks: 300
+  }
+  
+  confetti({ ...confettiConfig, angle: 60, origin: { x: 0, y: 1 } })
+  confetti({ ...confettiConfig, angle: 120, origin: { x: 1, y: 1 } })
 }
 
 function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shuffleMode, setShuffleMode, onStart, count, availableChapters }) {
@@ -199,7 +213,7 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
   )
 }
 
-function FlashcardView({ card, lang, flipped, onFlip, cardLang, onMarkKnown, isKnown, skipTransition }) {
+function FlashcardView({ card, flipped, onFlip, cardLang, onMarkKnown, isKnown }) {
   const showKoreanFirst = cardLang === 'korean'
   const frontText = showKoreanFirst ? card.korean : card.english
   const backText = showKoreanFirst ? card.english : card.korean
@@ -214,7 +228,7 @@ function FlashcardView({ card, lang, flipped, onFlip, cardLang, onMarkKnown, isK
     <div className="relative w-full max-w-sm aspect-[3/4]">
       <div className="absolute inset-0 bg-gray-800 rounded-3xl border border-gray-700"></div>
       <div className="card-flip absolute inset-0 cursor-pointer select-none" onClick={onFlip}>
-        <div className={`card-flip-inner relative w-full h-full ${flipped ? 'flipped' : ''} ${skipTransition ? 'no-flip-transition' : ''}`}>
+        <div className={`card-flip-inner relative w-full h-full ${flipped ? 'flipped' : ''}`}>
           <div className="card-front absolute inset-0 bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 flex flex-col items-center justify-center p-8">
             <button
               onClick={handleMarkKnown}
@@ -269,7 +283,6 @@ function App() {
   const [flipped, setFlipped] = useState(false)
   const [slideOut, setSlideOut] = useState(false)
   const [slideOutKnown, setSlideOutKnown] = useState(null) // word being removed due to marking as known
-  const [skipNextTransition, setSkipNextTransition] = useState(false) // skip flip/slide animation for next card
   const [direction, setDirection] = useState('next')
   const [dragX, setDragX] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
@@ -321,31 +334,15 @@ function App() {
 
   const getRandomLang = () => Math.random() < 0.5 ? 'korean' : 'english'
 
-  useEffect(() => {
-    localStorage.setItem('flashcard-book', book)
-  }, [book])
-
-  useEffect(() => {
-    localStorage.setItem('flashcard-chapter', chapter)
-  }, [chapter])
-
+  useEffect(() => { localStorage.setItem('flashcard-book', book) }, [book])
+  useEffect(() => { localStorage.setItem('flashcard-chapter', chapter) }, [chapter])
   useEffect(() => {
     localStorage.setItem('flashcard-lang', lang)
-    // Update cardLang immediately when lang changes
     setCardLang(lang === 'random' ? getRandomLang() : lang)
   }, [lang])
-
-  useEffect(() => {
-    localStorage.setItem('flashcard-known-words', JSON.stringify(knownWords))
-  }, [knownWords])
-
-  useEffect(() => {
-    localStorage.setItem('flashcard-include-known', includeKnown.toString())
-  }, [includeKnown])
-
-  useEffect(() => {
-    localStorage.setItem('flashcard-shuffle-mode', shuffleMode.toString())
-  }, [shuffleMode])
+  useEffect(() => { localStorage.setItem('flashcard-known-words', JSON.stringify(knownWords)) }, [knownWords])
+  useEffect(() => { localStorage.setItem('flashcard-include-known', includeKnown.toString()) }, [includeKnown])
+  useEffect(() => { localStorage.setItem('flashcard-shuffle-mode', shuffleMode.toString()) }, [shuffleMode])
 
   useEffect(() => {
     const data = getFilteredVocabulary()
@@ -358,22 +355,18 @@ function App() {
   const prevCard = () => {
     if (slideOut) return
     setDirection('prev')
-    // Don't flip back during slide - keep card as is
     setSlideOut(true)
   }
 
   const nextCard = () => {
     if (slideOut) return
     setDirection('next')
-    // Don't flip back during slide - keep card as is
     setSlideOut(true)
   }
 
   const handleSlideEnd = () => {
     if (slideOut && !slideOutKnown) {
-      // Only handle normal navigation slides, not known word slides (handled by setTimeout)
-      // Skip flip transition for next card
-      setSkipNextTransition(true)
+      // Normal navigation: reset flip state and move to next card
       setFlipped(false)
       setIdx((prev) => direction === 'next' 
         ? (prev + 1) % cards.length 
@@ -383,10 +376,6 @@ function App() {
       if (lang === 'random') {
         setCardLang(getRandomLang())
       }
-      // Re-enable transitions after a frame
-      requestAnimationFrame(() => {
-        setSkipNextTransition(false)
-      })
     }
   }
 
@@ -436,62 +425,23 @@ function App() {
         }, 2000)
       }
       
-      // Short delay to show green checkmark, then slide to next card
       setTimeout(() => {
         if (!includeKnown) {
-          // Not including known: remove card from deck
           setSlideOutKnown(word)
           setDirection('next')
           setSlideOut(true)
-          // Remove card after slide animation completes (200ms)
           setTimeout(() => {
-            setSkipNextTransition(true)
             setFlipped(false)
             setCards(prev => {
               const newCards = prev.filter(c => c.korean !== word)
-              if (newCards.length > 0 && idx >= newCards.length) {
-                setIdx(0)
-              }
-              // Trigger confetti cannons when list is completed
-              if (newCards.length === 0) {
-                setTimeout(() => {
-                  const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3', '#ff69b4', '#00ffff', '#ffd700']
-                  // Left cannon
-                  confetti({
-                    particleCount: 100,
-                    angle: 60,
-                    spread: 60,
-                    origin: { x: 0, y: 1 },
-                    colors,
-                    startVelocity: 35,
-                    gravity: 0.6,
-                    decay: 0.94,
-                    ticks: 300
-                  })
-                  // Right cannon
-                  confetti({
-                    particleCount: 100,
-                    angle: 120,
-                    spread: 60,
-                    origin: { x: 1, y: 1 },
-                    colors,
-                    startVelocity: 35,
-                    gravity: 0.6,
-                    decay: 0.94,
-                    ticks: 300
-                  })
-                }, 700)
-              }
+              if (newCards.length > 0 && idx >= newCards.length) setIdx(0)
+              if (newCards.length === 0) setTimeout(triggerConfetti, 700)
               return newCards
             })
             setSlideOut(false)
             setSlideOutKnown(null)
-            requestAnimationFrame(() => {
-              setSkipNextTransition(false)
-            })
           }, 250)
         } else {
-          // Including known: just move to next card (don't remove)
           setDirection('next')
           setSlideOut(true)
         }
@@ -552,21 +502,17 @@ function App() {
       if (e.deltaX < -threshold) {
         setDragX(e.deltaX)
         setDirection('next')
-        // Don't change flip state during swipe - keep card as is
         requestAnimationFrame(() => {
           setIsDragging(false)
           setSlideOut(true)
-          // Reset drag flag after slide starts
           setTimeout(() => { hasDraggedRef.current = false }, 100)
         })
       } else if (e.deltaX > threshold) {
         setDragX(e.deltaX)
         setDirection('prev')
-        // Don't change flip state during swipe - keep card as is
         requestAnimationFrame(() => {
           setIsDragging(false)
           setSlideOut(true)
-          // Reset drag flag after slide starts
           setTimeout(() => { hasDraggedRef.current = false }, 100)
         })
       } else {
@@ -902,9 +848,9 @@ function App() {
             
             {/* Card */}
             <div 
-              key={idx}
+              key={`${cards[idx].korean}-${idx}`}
               className={`absolute inset-0 ${
-                !skipNextTransition && (slideOut || (!isDragging && dragX === 0))
+                slideOut || (!isDragging && dragX === 0)
                   ? 'transition-transform duration-200 ease-out'
                   : ''
               }`}
@@ -919,13 +865,11 @@ function App() {
             >
               <FlashcardView 
                 card={cards[idx]} 
-                lang={lang} 
                 flipped={flipped} 
                 onFlip={flipCard} 
                 cardLang={cardLang}
                 onMarkKnown={markWordKnown}
                 isKnown={knownWords.includes(cards[idx].korean) && cards[idx].korean !== slideOutKnown}
-                skipTransition={skipNextTransition}
               />
             </div>
           </div>
