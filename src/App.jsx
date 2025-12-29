@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSwipeable } from 'react-swipeable'
+import confetti from 'canvas-confetti'
 import { vocabulary, chapters } from './data/vocabulary'
 
 function shuffleArray(arr) {
@@ -11,6 +12,35 @@ function shuffleArray(arr) {
     result[j] = temp
   }
   return result
+}
+
+// Korean Jamo decomposition for partial syllable search
+const CHOSUNG = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']
+const JUNGSUNG = ['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ']
+const JONGSUNG = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']
+
+function decomposeKorean(str) {
+  let result = ''
+  for (const char of str) {
+    const code = char.charCodeAt(0)
+    if (code >= 0xAC00 && code <= 0xD7A3) {
+      const syllableIndex = code - 0xAC00
+      const cho = Math.floor(syllableIndex / 588)
+      const jung = Math.floor((syllableIndex % 588) / 28)
+      const jong = syllableIndex % 28
+      result += CHOSUNG[cho] + JUNGSUNG[jung] + JONGSUNG[jong]
+    } else {
+      result += char
+    }
+  }
+  return result
+}
+
+function koreanIncludes(text, search) {
+  // First try direct match
+  if (text.includes(search)) return true
+  // Then try decomposed match for partial syllable
+  return decomposeKorean(text).includes(decomposeKorean(search))
 }
 
 function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shuffleMode, setShuffleMode, onStart, count, availableChapters }) {
@@ -169,7 +199,7 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
   )
 }
 
-function FlashcardView({ card, lang, flipped, onFlip, cardLang, onMarkKnown, isKnown }) {
+function FlashcardView({ card, lang, flipped, onFlip, cardLang, onMarkKnown, isKnown, skipTransition }) {
   const showKoreanFirst = cardLang === 'korean'
   const frontText = showKoreanFirst ? card.korean : card.english
   const backText = showKoreanFirst ? card.english : card.korean
@@ -184,7 +214,7 @@ function FlashcardView({ card, lang, flipped, onFlip, cardLang, onMarkKnown, isK
     <div className="relative w-full max-w-sm aspect-[3/4]">
       <div className="absolute inset-0 bg-gray-800 rounded-3xl border border-gray-700"></div>
       <div className="card-flip absolute inset-0 cursor-pointer select-none" onClick={onFlip}>
-        <div className={`card-flip-inner relative w-full h-full ${flipped ? 'flipped' : ''}`}>
+        <div className={`card-flip-inner relative w-full h-full ${flipped ? 'flipped' : ''} ${skipTransition ? 'no-flip-transition' : ''}`}>
           <div className="card-front absolute inset-0 bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 flex flex-col items-center justify-center p-8">
             <button
               onClick={handleMarkKnown}
@@ -200,7 +230,7 @@ function FlashcardView({ card, lang, flipped, onFlip, cardLang, onMarkKnown, isK
             <div className={`text-center ${frontIsKorean ? 'text-4xl' : 'text-3xl'} font-[400] text-white`}>
               {frontText}
             </div>
-            <div className="absolute bottom-6 text-gray-500 text-sm">Tap to reveal</div>
+            <div className="absolute bottom-6 text-gray-500 text-sm">Tap to reveal • Swipe to navigate</div>
           </div>
           <div className="card-back absolute inset-0 bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 flex flex-col items-center justify-center p-8">
             <button
@@ -238,6 +268,8 @@ function App() {
   const [idx, setIdx] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [slideOut, setSlideOut] = useState(false)
+  const [slideOutKnown, setSlideOutKnown] = useState(null) // word being removed due to marking as known
+  const [skipNextTransition, setSkipNextTransition] = useState(false) // skip flip/slide animation for next card
   const [direction, setDirection] = useState('next')
   const [dragX, setDragX] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
@@ -326,19 +358,23 @@ function App() {
   const prevCard = () => {
     if (slideOut) return
     setDirection('prev')
-    setFlipped(false)
+    // Don't flip back during slide - keep card as is
     setSlideOut(true)
   }
 
   const nextCard = () => {
     if (slideOut) return
     setDirection('next')
-    setFlipped(false)
+    // Don't flip back during slide - keep card as is
     setSlideOut(true)
   }
 
   const handleSlideEnd = () => {
-    if (slideOut) {
+    if (slideOut && !slideOutKnown) {
+      // Only handle normal navigation slides, not known word slides (handled by setTimeout)
+      // Skip flip transition for next card
+      setSkipNextTransition(true)
+      setFlipped(false)
       setIdx((prev) => direction === 'next' 
         ? (prev + 1) % cards.length 
         : (prev - 1 + cards.length) % cards.length)
@@ -347,10 +383,23 @@ function App() {
       if (lang === 'random') {
         setCardLang(getRandomLang())
       }
+      // Re-enable transitions after a frame
+      requestAnimationFrame(() => {
+        setSkipNextTransition(false)
+      })
     }
   }
 
-  const flipCard = useCallback(() => setFlipped((f) => !f), [])
+  const hasDraggedRef = useRef(false)
+  
+  const flipCard = useCallback(() => {
+    // Don't flip if user was dragging/swiping
+    if (hasDraggedRef.current) {
+      hasDraggedRef.current = false
+      return
+    }
+    setFlipped((f) => !f)
+  }, [])
 
   const startLearning = useCallback(() => {
     const data = getFilteredVocabulary()
@@ -374,7 +423,7 @@ function App() {
     const isCurrentlyKnown = knownWords.includes(word)
     
     if (includeKnown && isCurrentlyKnown) {
-      // Toggle off - remove from known words
+      // Toggle off - remove from known words, stay on current card
       setKnownWords(prev => prev.filter(w => w !== word))
     } else if (!isCurrentlyKnown) {
       // Add to known words (most recent first), ensure no duplicates
@@ -387,22 +436,66 @@ function App() {
         }, 2000)
       }
       
-      // Remove from current cards list and move to next (only when not including known)
-      // Delay for 1 second to show the green checkmark
-      if (!includeKnown) {
-        setTimeout(() => {
-          setCards(prev => {
-            const newCards = prev.filter(c => c.korean !== word)
-            if (newCards.length === 0) return newCards
-            // Adjust index if needed
-            if (idx >= newCards.length) {
-              setIdx(0)
-            }
-            return newCards
-          })
-          setFlipped(false)
-        }, 1000)
-      }
+      // Short delay to show green checkmark, then slide to next card
+      setTimeout(() => {
+        if (!includeKnown) {
+          // Not including known: remove card from deck
+          setSlideOutKnown(word)
+          setDirection('next')
+          setSlideOut(true)
+          // Remove card after slide animation completes (200ms)
+          setTimeout(() => {
+            setSkipNextTransition(true)
+            setFlipped(false)
+            setCards(prev => {
+              const newCards = prev.filter(c => c.korean !== word)
+              if (newCards.length > 0 && idx >= newCards.length) {
+                setIdx(0)
+              }
+              // Trigger confetti cannons when list is completed
+              if (newCards.length === 0) {
+                setTimeout(() => {
+                  const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3', '#ff69b4', '#00ffff', '#ffd700']
+                  // Left cannon
+                  confetti({
+                    particleCount: 100,
+                    angle: 60,
+                    spread: 60,
+                    origin: { x: 0, y: 1 },
+                    colors,
+                    startVelocity: 35,
+                    gravity: 0.6,
+                    decay: 0.94,
+                    ticks: 300
+                  })
+                  // Right cannon
+                  confetti({
+                    particleCount: 100,
+                    angle: 120,
+                    spread: 60,
+                    origin: { x: 1, y: 1 },
+                    colors,
+                    startVelocity: 35,
+                    gravity: 0.6,
+                    decay: 0.94,
+                    ticks: 300
+                  })
+                }, 700)
+              }
+              return newCards
+            })
+            setSlideOut(false)
+            setSlideOutKnown(null)
+            requestAnimationFrame(() => {
+              setSkipNextTransition(false)
+            })
+          }, 250)
+        } else {
+          // Including known: just move to next card (don't remove)
+          setDirection('next')
+          setSlideOut(true)
+        }
+      }, 500)
     }
   }, [idx, includeKnown, knownWords, hasSeenKnownTutorial])
 
@@ -417,6 +510,26 @@ function App() {
     setFlipped(false)
   }, [getFilteredVocabulary, shuffleMode])
 
+  // Reset known words only for the current chapter/selection
+  const resetKnownWordsForSelection = useCallback(() => {
+    // Get all words in current selection (including known ones)
+    let selectionData = vocabulary[book] || []
+    if (chapter !== 'all' && book !== 'All') {
+      selectionData = selectionData.filter(item => item.chapter === chapter)
+    }
+    const selectionWords = new Set(selectionData.map(item => item.korean))
+    
+    // Remove only words from current selection from known words
+    const newKnownWords = knownWords.filter(word => !selectionWords.has(word))
+    setKnownWords(newKnownWords)
+    
+    // Refresh cards list
+    const data = getFilteredVocabulary(newKnownWords)
+    setCards(shuffleMode ? shuffleArray(data) : data)
+    setIdx(0)
+    setFlipped(false)
+  }, [book, chapter, knownWords, getFilteredVocabulary, shuffleMode])
+
   const dismissKnownTutorial = useCallback(() => {
     setShowKnownTutorial(false)
     setHasSeenKnownTutorial(true)
@@ -428,6 +541,10 @@ function App() {
       if (slideOut) return
       setIsDragging(true)
       setDragX(e.deltaX)
+      // Mark that a drag occurred to prevent flip on release
+      if (Math.abs(e.deltaX) > 5) {
+        hasDraggedRef.current = true
+      }
     },
     onSwiped: (e) => {
       if (slideOut) return
@@ -435,22 +552,28 @@ function App() {
       if (e.deltaX < -threshold) {
         setDragX(e.deltaX)
         setDirection('next')
-        setFlipped(false)
+        // Don't change flip state during swipe - keep card as is
         requestAnimationFrame(() => {
           setIsDragging(false)
           setSlideOut(true)
+          // Reset drag flag after slide starts
+          setTimeout(() => { hasDraggedRef.current = false }, 100)
         })
       } else if (e.deltaX > threshold) {
         setDragX(e.deltaX)
         setDirection('prev')
-        setFlipped(false)
+        // Don't change flip state during swipe - keep card as is
         requestAnimationFrame(() => {
           setIsDragging(false)
           setSlideOut(true)
+          // Reset drag flag after slide starts
+          setTimeout(() => { hasDraggedRef.current = false }, 100)
         })
       } else {
         setIsDragging(false)
         setDragX(0)
+        // Reset drag flag after a short delay to let click event pass
+        setTimeout(() => { hasDraggedRef.current = false }, 100)
       }
     },
     preventScrollOnSwipe: true,
@@ -472,14 +595,6 @@ function App() {
         count={cardCount}
         availableChapters={availableChapters}
       />
-    )
-  }
-
-  if (cards.length === 0) {
-    return (
-      <div className="h-full bg-gray-900 flex items-center justify-center">
-        <p className="text-white text-xl">No cards available</p>
-      </div>
     )
   }
 
@@ -523,7 +638,7 @@ function App() {
                 {/* Arrow pointing to settings icon */}
                 <div className="absolute -top-2 right-5 w-4 h-4 bg-indigo-600 transform rotate-45"></div>
               <p className="text-white text-sm mb-3">
-                Word marked as known! You can control known words from the settings menu.
+                Word marked as learned! You can manage learned words from the settings menu.
               </p>
               <button
                 onClick={dismissKnownTutorial}
@@ -537,7 +652,7 @@ function App() {
         </div>
       </header>
 
-      {/* Known Words Settings Modal */}
+      {/* Learned Words Settings Modal */}
       {showKnownSettings && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowKnownSettings(false)}>
           <div className="bg-gray-800 rounded-2xl p-6 w-full max-w-sm" onClick={e => e.stopPropagation()}>
@@ -587,7 +702,7 @@ function App() {
               </div>
               
               <div className="flex items-center justify-between">
-                <span className="text-gray-300">Include known words</span>
+                <span className="text-gray-300">Include learned words</span>
                 <button
                   onClick={() => setIncludeKnown(!includeKnown)}
                   className={`w-12 h-6 rounded-full transition-colors ${includeKnown ? 'bg-indigo-600' : 'bg-gray-600'}`}
@@ -598,7 +713,7 @@ function App() {
               
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-400">
-                  {knownWords.length} words marked as known
+                  {knownWords.length} words marked as learned
                 </span>
                 {knownWords.length > 0 && (
                   <button
@@ -610,16 +725,31 @@ function App() {
                 )}
               </div>
               
-              <button
-                onClick={() => {
-                  if (confirm('Reset all known words?')) {
-                    resetKnownWords()
-                  }
-                }}
-                className="w-full py-2 px-4 bg-red-600/20 text-red-400 rounded-lg hover:bg-red-600/30 transition-colors"
-              >
-                Reset Known Words
-              </button>
+              {knownWords.length > 0 && (
+                <>
+                  <button
+                    onClick={() => {
+                      if (confirm('Reset learned words for this list?')) {
+                        resetKnownWordsForSelection()
+                      }
+                    }}
+                    className="w-full py-2 px-4 bg-red-600/20 text-red-400 rounded-lg hover:bg-red-600/30 transition-colors"
+                  >
+                    Reset Learned Words for this list
+                  </button>
+                  
+                  <button
+                    onClick={() => {
+                      if (confirm('Reset ALL learned words?')) {
+                        resetKnownWords()
+                      }
+                    }}
+                    className="w-full py-2 px-4 bg-red-600/10 text-red-400/70 rounded-lg hover:bg-red-600/20 transition-colors text-sm"
+                  >
+                    Reset All Learned Words
+                  </button>
+                </>
+              )}
             </div>
             
             <button
@@ -632,11 +762,11 @@ function App() {
         </div>
       )}
 
-      {/* Known Words List Modal */}
+      {/* Learned Words List Modal */}
       {showKnownWordsList && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => { setShowKnownWordsList(false); setKnownWordsSearch(''); }}>
           <div className="bg-gray-800 rounded-2xl p-6 w-full max-w-sm max-h-[80vh] flex flex-col" onClick={e => e.stopPropagation()}>
-            <h2 className="text-xl font-bold text-white mb-4">Known Words</h2>
+            <h2 className="text-xl font-bold text-white mb-4">Learned Words</h2>
             
             <input
               type="text"
@@ -654,7 +784,7 @@ function App() {
                 const entry = vocabulary[book]?.find(v => v.korean === word) || 
                               vocabulary['1A']?.find(v => v.korean === word) || 
                               vocabulary['1B']?.find(v => v.korean === word)
-                return word.includes(search) || entry?.english?.toLowerCase().includes(search)
+                return koreanIncludes(word, search) || entry?.english?.toLowerCase().includes(search)
               }).map(word => {
                 const entry = vocabulary[book]?.find(v => v.korean === word) || 
                               vocabulary['1A']?.find(v => v.korean === word) || 
@@ -687,7 +817,7 @@ function App() {
                 )
               })}
               {knownWords.length === 0 && (
-                <p className="text-gray-400 text-center py-4">No known words</p>
+                <p className="text-gray-400 text-center py-4">No learned words</p>
               )}
             </div>
             
@@ -707,6 +837,16 @@ function App() {
           <div className="bg-gray-800 rounded-2xl p-6 w-full max-w-sm max-h-[80vh] flex flex-col" onClick={e => e.stopPropagation()}>
             <h2 className="text-xl font-bold text-white mb-4">Word List ({cards.length})</h2>
             
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-gray-300 text-sm">Include learned words</span>
+              <button
+                onClick={() => setIncludeKnown(!includeKnown)}
+                className={`w-10 h-5 rounded-full transition-colors ${includeKnown ? 'bg-indigo-600' : 'bg-gray-600'}`}
+              >
+                <div className={`w-4 h-4 bg-white rounded-full transition-transform ${includeKnown ? 'translate-x-5' : 'translate-x-0.5'}`} />
+              </button>
+            </div>
+            
             <input
               type="text"
               placeholder="Search..."
@@ -720,7 +860,7 @@ function App() {
                 if (!wordListSearch) return true
                 const search = wordListSearch.trim().replace(/^[^\w\uAC00-\uD7A3]+|[^\w\uAC00-\uD7A3]+$/g, '').toLowerCase()
                 if (!search) return true
-                return card.korean.includes(search) || card.english.toLowerCase().includes(search)
+                return koreanIncludes(card.korean, search) || card.english.toLowerCase().includes(search)
               }).map((card, i) => (
                 <div 
                   key={`${card.korean}-${i}`} 
@@ -755,53 +895,88 @@ function App() {
       )}
 
       <main {...swipeConfig} className="flex-1 flex items-center justify-center p-4 touch-pan-y overflow-hidden">
-        <div className="relative w-full max-w-sm aspect-[3/4]">
-          {/* Deck underneath card */}
-          <div className="absolute inset-0 bg-gray-800 rounded-3xl shadow-2xl border border-gray-700"></div>
-          
-          {/* Card */}
-          <div 
-            key={idx}
-            className={`absolute inset-0 ${
-              slideOut || (!isDragging && dragX === 0)
-                ? 'transition-transform duration-200 ease-out'
-                : ''
-            }`}
-            style={{ 
-              transform: slideOut 
-                ? direction === 'next' 
-                  ? 'translateX(-110%)' 
-                  : 'translateX(110%)'
-                : `translateX(${dragX}px)`
-            }}
-            onTransitionEnd={handleSlideEnd}
-          >
-            <FlashcardView 
-              card={cards[idx]} 
-              lang={lang} 
-              flipped={flipped} 
-              onFlip={flipCard} 
-              cardLang={cardLang}
-              onMarkKnown={markWordKnown}
-              isKnown={knownWords.includes(cards[idx].korean)}
-            />
+        {cards.length > 0 ? (
+          <div className="relative w-full max-w-sm aspect-[3/4]">
+            {/* Deck underneath card */}
+            <div className="absolute inset-0 bg-gray-800 rounded-3xl shadow-2xl border border-gray-700"></div>
+            
+            {/* Card */}
+            <div 
+              key={idx}
+              className={`absolute inset-0 ${
+                !skipNextTransition && (slideOut || (!isDragging && dragX === 0))
+                  ? 'transition-transform duration-200 ease-out'
+                  : ''
+              }`}
+              style={{ 
+                transform: slideOut 
+                  ? direction === 'next' 
+                    ? 'translateX(-110%)' 
+                    : 'translateX(110%)'
+                  : `translateX(${dragX}px)`
+              }}
+              onTransitionEnd={handleSlideEnd}
+            >
+              <FlashcardView 
+                card={cards[idx]} 
+                lang={lang} 
+                flipped={flipped} 
+                onFlip={flipCard} 
+                cardLang={cardLang}
+                onMarkKnown={markWordKnown}
+                isKnown={knownWords.includes(cards[idx].korean) && cards[idx].korean !== slideOutKnown}
+                skipTransition={skipNextTransition}
+              />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="text-center">
+            <p className="text-gray-400 text-lg mb-6">Well done! <br/> You already know all the words in this list...</p>
+            <div className="flex flex-col gap-3">
+              {knownWords.length > 0 && (
+                <>
+                  <button
+                    onClick={() => setIncludeKnown(true)}
+                    className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-500 transition-colors"
+                  >
+                    Include Learned Words
+                  </button>
+                  <button
+                    onClick={() => {
+                      if (confirm('Reset learned words for this list?')) {
+                        resetKnownWordsForSelection()
+                      }
+                    }}
+                    className="px-6 py-3 bg-gray-700 text-white rounded-xl font-semibold hover:bg-gray-600 transition-colors"
+                  >
+                    Reset Learned Words for this list
+                  </button>
+                </>
+              )}
+              <button
+                onClick={goBack}
+                className="px-6 py-3 bg-gray-700 text-white rounded-xl font-semibold hover:bg-gray-600 transition-colors"
+              >
+                Select a new list
+              </button>
+            </div>
+          </div>
+        )}
       </main>
 
       <footer className="bg-gray-800 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
         <div className="flex items-center justify-between max-w-sm mx-auto">
-          <button onClick={prevCard} className="text-white active:bg-white/20 p-3 rounded-full outline-none select-none transition-all duration-300">
+          <button onClick={prevCard} disabled={cards.length === 0} className="text-white active:bg-white/20 p-3 rounded-full outline-none select-none transition-all duration-300 disabled:opacity-30">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <div className="text-white text-center">
-            <span className="text-2xl font-bold">{idx + 1}</span>
+            <span className="text-2xl font-bold">{cards.length > 0 ? idx + 1 : 0}</span>
             <span className="text-white/70 mx-2">/</span>
             <span className="text-white/70">{cards.length}</span>
           </div>
-          <button onClick={nextCard} className="text-white active:bg-white/20 p-3 rounded-full outline-none select-none transition-all duration-300">
+          <button onClick={nextCard} disabled={cards.length === 0} className="text-white active:bg-white/20 p-3 rounded-full outline-none select-none transition-all duration-300 disabled:opacity-30">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
