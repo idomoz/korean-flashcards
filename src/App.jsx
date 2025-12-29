@@ -299,6 +299,8 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('flashcard-lang', lang)
+    // Update cardLang immediately when lang changes
+    setCardLang(lang === 'random' ? getRandomLang() : lang)
   }, [lang])
 
   useEffect(() => {
