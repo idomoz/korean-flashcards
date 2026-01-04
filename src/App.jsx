@@ -545,6 +545,22 @@ function App() {
   }
 
   return (
+      {/* Tutorial Snackbar */}
+            {showKnownTutorial && (
+              <div className="fixed top-16 right-2 w-64 bg-indigo-600 rounded-xl shadow-lg p-4 z-50">
+                {/* Arrow pointing to settings icon */}
+                <div className="absolute -top-2 right-5 w-4 h-4 bg-indigo-600 transform rotate-45"></div>
+              <p className="text-white text-sm mb-3">
+                Word marked as learned! You can manage learned words from the settings menu.
+              </p>
+              <button
+                onClick={dismissKnownTutorial}
+                className="w-full py-2 px-3 bg-white/20 text-white text-sm font-semibold rounded-lg hover:bg-white/30 transition-colors"
+              >
+                Got it
+              </button>
+              </div>
+            )}
     <div className="h-full bg-gray-900 flex flex-col">
       <header className="bg-gray-800 px-4 py-3 pt-[calc(0.75rem+env(safe-area-inset-top))] flex items-center justify-between">
         <div className="flex items-center gap-1">
@@ -578,22 +594,7 @@ function App() {
               </svg>
             </button>
             
-            {/* Tutorial Snackbar */}
-            {showKnownTutorial && (
-              <div className="fixed top-16 right-2 w-64 bg-indigo-600 rounded-xl shadow-lg p-4 z-50">
-                {/* Arrow pointing to settings icon */}
-                <div className="absolute -top-2 right-5 w-4 h-4 bg-indigo-600 transform rotate-45"></div>
-              <p className="text-white text-sm mb-3">
-                Word marked as learned! You can manage learned words from the settings menu.
-              </p>
-              <button
-                onClick={dismissKnownTutorial}
-                className="w-full py-2 px-3 bg-white/20 text-white text-sm font-semibold rounded-lg hover:bg-white/30 transition-colors"
-              >
-                Got it
-              </button>
-              </div>
-            )}
+           
           </div>
         </div>
       </header>
