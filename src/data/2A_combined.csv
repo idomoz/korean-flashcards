@@ -1,0 +1,569 @@
+korean,english,chapter,chapterName
+성명,full name,1,Introduction
+국적,nationality,1,Introduction
+생년월일,date of birth,1,Introduction
+성별,gender,1,Introduction
+연락처,contact information,1,Introduction
+이메일,email,1,Introduction
+목적,purpose,1,Introduction
+입학하다,to be admitted to school,1,Introduction
+취직하다,to get a job,1,Introduction
+사업하다,to do business,1,Introduction
+취미,hobby,1,Introduction
+부르다,to call,1,Introduction
+한국학,Korean Studies,1,Introduction
+동쪽,east,1,Introduction
+서쪽,west,1,Introduction
+남쪽,south,1,Introduction
+북쪽,north,1,Introduction
+강,river,1,Introduction
+호수,lake,1,Introduction
+도시,city,1,Introduction
+시골,countryside,1,Introduction
+섬,island,1,Introduction
+아주,very,1,Introduction
+별로,not many / much,1,Introduction
+전혀,not at all,1,Introduction
+벚꽃,cherry blossom(s),1,Introduction
+남이섬,Namiseom Island,1,Introduction
+소개하다,to introduce,1,Introduction
+파리,Paris,1,Introduction
+에펠 탑,Eiffel Tower,1,Introduction
+위치,location,1,Introduction
+방법,way,1,Introduction
+동물,animal,1,Introduction
+에 대해서,about,1,Introduction
+독서,reading,2,Hobby
+영화 감상,watching movies,2,Hobby
+음악 감상,listening to music,2,Hobby
+낚시,fishing,2,Hobby
+조깅,jogging,2,Hobby
+스쿠버 다이빙,scuba diving,2,Hobby
+웹툰을 보다,to read webcomics,2,Hobby
+인형을 모으다,to collect dolls,2,Hobby
+인터넷 쇼핑을 하다,to do online shopping,2,Hobby
+동영상을 만들다,to create videos,2,Hobby
+에스엔에스(,to do social media,2,Hobby
+시간이 나다,to have free time,2,Hobby
+다음,next time,2,Hobby
+컵,cup,2,Hobby
+동호회,club,2,Hobby
+회원,member,2,Hobby
+모집하다,to recruit,2,Hobby
+신청하다,to apply,2,Hobby
+가입하다,to join,2,Hobby
+모임을 하다,to have a gathering,2,Hobby
+회비를 내다,to pay membership fees,2,Hobby
+매일,every day,2,Hobby
+매주,every week,2,Hobby
+매달,every month,2,Hobby
+매년,every year,2,Hobby
+볼링,bowling,2,Hobby
+연락하다,to contact,2,Hobby
+찾다,to find,2,Hobby
+맛집,must-eat place,2,Hobby
+블로그,blog,2,Hobby
+새롭다,to be new,2,Hobby
+홈페이지,homepage,2,Hobby
+문자,text,2,Hobby
+알리다,to inform,2,Hobby
+정보,information,2,Hobby
+문의,inquiry,2,Hobby
+활동,activity,2,Hobby
+바닷가,beach,3,Travel Experiences
+전통 시장,traditional market,3,Travel Experiences
+관광지,tourist attraction,3,Travel Experiences
+미술관,museum,3,Travel Experiences
+동물원,zoo,3,Travel Experiences
+경치가 아름답다,view is beautiful,3,Travel Experiences
+음식이 다양하다,to have a variety of food,3,Travel Experiences
+공기가 맑다,air is clear,3,Travel Experiences
+숙소가 깨끗하다,accommodation is clean,3,Travel Experiences
+전통문화,traditional culture,3,Travel Experiences
+찜질방,Korean hot sauna,3,Travel Experiences
+관악산,Gwanaksan Mountain,3,Travel Experiences
+피다,to bloom,3,Travel Experiences
+강남역,Gangnam Station,3,Travel Experiences
+갔다 오다,to have been,3,Travel Experiences
+여러 가지,various,3,Travel Experiences
+광고,advertisement,3,Travel Experiences
+연휴,holidays,3,Travel Experiences
+말,horse,3,Travel Experiences
+알아보다,to look into,3,Travel Experiences
+계획을 세우다,to make plans,3,Travel Experiences
+예매하다,to book,3,Travel Experiences
+예약하다,to reserve,3,Travel Experiences
+짐을 싸다,to pack,3,Travel Experiences
+하루,a (one) day,3,Travel Experiences
+이틀,two days,3,Travel Experiences
+사흘,three days,3,Travel Experiences
+나흘,four days,3,Travel Experiences
+열흘,ten days,3,Travel Experiences
+박,night / stay,3,Travel Experiences
+시간,hour(s),3,Travel Experiences
+달,month(s),3,Travel Experiences
+주,week,3,Travel Experiences
+개월,month(s),3,Travel Experiences
+년,year(s),3,Travel Experiences
+여행사,travel agency,3,Travel Experiences
+상품,(travel) package,3,Travel Experiences
+숙박비,lodging expense,3,Travel Experiences
+식비,food expense,3,Travel Experiences
+포함하다,to include,3,Travel Experiences
+가격,price,3,Travel Experiences
+전주,Jeonju,3,Travel Experiences
+마을,village,3,Travel Experiences
+셔틀버스,shuttle bus,3,Travel Experiences
+오랫동안,for a long time,3,Travel Experiences
+경험,experience,3,Travel Experiences
+다시,again,3,Travel Experiences
+발표하다,to present,3,Travel Experiences
+감사하다,to thank,3,Travel Experiences
+대상,subject,3,Travel Experiences
+권,ticket / pass,3,Travel Experiences
+을,for (something / someone),3,Travel Experiences
+가격이 싸다,price is cheap / expensive,4,Shopping
+색깔이 밝다,color is bright / dark,4,Shopping
+사이즈가 크다,size is big / small,4,Shopping
+길이가 길다,length is long / short,4,Shopping
+굽이 높다,heel is high / low,4,Shopping
+마음에 들다,to like it / not like it,4,Shopping
+잘 어울리다,to suit well / not suit well,4,Shopping
+인기 있다,to be popular,4,Shopping
+손님,customer,4,Shopping
+넥타이,necktie,4,Shopping
+필요하다,to need,4,Shopping
+선물하다,to gift,4,Shopping
+밝은색,bright color,4,Shopping
+어두운색,dark color,4,Shopping
+스카프,scarf,4,Shopping
+상품,product,4,Shopping
+배송비,shipping fee,4,Shopping
+장바구니,cart,4,Shopping
+할인하다,to discount,4,Shopping
+선택하다,to select,4,Shopping
+구매하다,to purchase,4,Shopping
+주문하다,to order,4,Shopping
+문의하다,to inquire,4,Shopping
+교환하다,to exchange,4,Shopping
+환불하다,to refund,4,Shopping
+최대,maximum,4,Shopping
+할인받다,to receive a discount,4,Shopping
+모든,every,4,Shopping
+다르다,to be different,4,Shopping
+내용,content,4,Shopping
+이유,reason,4,Shopping
+새,new,4,Shopping
+배송,shipping,4,Shopping
+확인하다,to confirm,4,Shopping
+포장하다,to wrap,4,Shopping
+택배,delivery service,4,Shopping
+자세하다,to be detailed,4,Shopping
+저희,our (humble expression),4,Shopping
+이용하다,to use,4,Shopping
+환불받다,to receive a refund,4,Shopping
+물어보다,to ask,4,Shopping
+기타,other,4,Shopping
+동대문,Dongdaemun,4,Shopping
+양재,Yangjae,4,Shopping
+노량진,Noryangjin,4,Shopping
+수산 시장,Fish Market,4,Shopping
+상자,box,5,Post Offices & Banks
+우표를 붙이다,to attach a stamp,5,Post Offices & Banks
+우편번호를 쓰다,to write the zip code,5,Post Offices & Banks
+번호표를 뽑다,to take a number ticket,5,Post Offices & Banks
+엽서를 보내다,to send / ship a postcard,5,Post Offices & Banks
+소포를 보내다,to send / ship a package,5,Post Offices & Banks
+소포를 포장하다,to wrap a package,5,Post Offices & Banks
+봉투에 넣다,to put in an envelope,5,Post Offices & Banks
+서류,document,5,Post Offices & Banks
+저울,scale,5,Post Offices & Banks
+올리다,to place on top,5,Post Offices & Banks
+들다,to contain,5,Post Offices & Banks
+콜롬비아,Colombia,5,Post Offices & Banks
+케냐,Kenya,5,Post Offices & Banks
+택배 기사,courier,5,Post Offices & Banks
+맞다,to be correct,5,Post Offices & Banks
+문,door,5,Post Offices & Banks
+놓다,to place,5,Post Offices & Banks
+정도,approximately,5,Post Offices & Banks
+요금,rate,5,Post Offices & Banks
+통장,bankbook,5,Post Offices & Banks
+체크카드,debit card,5,Post Offices & Banks
+신용카드,credit card,5,Post Offices & Banks
+신분증을 내다,to provide one’s ID,5,Post Offices & Banks
+신청서를 쓰다,to fill out an application,5,Post Offices & Banks
+서명하다,to sign,5,Post Offices & Banks
+비밀번호를 누르다,to enter the password,5,Post Offices & Banks
+돈을 넣다,to deposit money,5,Post Offices & Banks
+돈을 보내다,to send money,5,Post Offices & Banks
+입금,deposit,5,Post Offices & Banks
+출금,withdrawal,5,Post Offices & Banks
+환전,foreign exchange,5,Post Offices & Banks
+송금,wire transfer,5,Post Offices & Banks
+이체,transfer,5,Post Offices & Banks
+취소,cancel,5,Post Offices & Banks
+자리,digit,5,Post Offices & Banks
+틀리다,to be incorrect,5,Post Offices & Banks
+첫,first,5,Post Offices & Banks
+성공,success,5,Post Offices & Banks
+다녀오다,to go to and from,5,Post Offices & Banks
+창구,(bank teller) window,5,Post Offices & Banks
+달러,dollar,5,Post Offices & Banks
+걱정하다,to worry,5,Post Offices & Banks
+그렇지만,but,5,Post Offices & Banks
+은행원,teller,5,Post Offices & Banks
+추가,additional,5,Post Offices & Banks
+서비스,service,5,Post Offices & Banks
+우편,mail,5,Post Offices & Banks
+예금,deposit / savings,5,Post Offices & Banks
+보험,insurance,5,Post Offices & Banks
+정리하다,to clean up,6,Daily Routine
+닦다,to mop,6,Daily Routine
+세탁기를 돌리다,to run the washing machine,6,Daily Routine
+옷을 빨다,to wash clothes,6,Daily Routine
+청소기를 돌리다,to vacuum,6,Daily Routine
+설거지하다,to do the dishes,6,Daily Routine
+그릇을 씻다,to wash the plates,6,Daily Routine
+컵,cup,6,Daily Routine
+숟가락,spoon,6,Daily Routine
+젓가락,chopstick(s),6,Daily Routine
+쓰레기를 버리다,to throw away trash,6,Daily Routine
+음식물 쓰레기,food waste,6,Daily Routine
+일반 쓰레기,general waste,6,Daily Routine
+재활용 쓰레기,recyclable waste,6,Daily Routine
+참,very,6,Daily Routine
+이제,now,6,Daily Routine
+지저분하다,to be messy,6,Daily Routine
+대청소,spring cleaning,6,Daily Routine
+그동안,in the meantime,6,Daily Routine
+넓다,to be spacious,6,Daily Routine
+로봇,robot,6,Daily Routine
+사이트,site,6,Daily Routine
+집안일,household chores,6,Daily Routine
+가전제품,appliances,6,Daily Routine
+갖다,to have,6,Daily Routine
+나가다,to leave / come out,6,Daily Routine
+화장을 지우다,to remove one’s makeup,6,Daily Routine
+머리를 감다,to wash one’s hair,6,Daily Routine
+목욕하다,to take a bath,6,Daily Routine
+예습하다,to preview,6,Daily Routine
+수업을 듣다,to take classes,6,Daily Routine
+복습하다,to review,6,Daily Routine
+낮잠을 자다,to take a nap,6,Daily Routine
+일기를 쓰다,to write a diary,6,Daily Routine
+통화를 하다,to talk on the phone,6,Daily Routine
+원고,manuscript,6,Daily Routine
+혹시,by any chance,6,Daily Routine
+생각하다,to think,6,Daily Routine
+귀걸이,earring,6,Daily Routine
+깜짝,astonishingly,6,Daily Routine
+놀라다,to be surprised,6,Daily Routine
+잠깐,momentarily,6,Daily Routine
+지하도,underpass,7,Getting Directions
+신호등,traffic light,7,Getting Directions
+횡단보도,crosswalk,7,Getting Directions
+사거리,intersection,7,Getting Directions
+육교,pedestrian overpass,7,Getting Directions
+직진하다,to go straight,7,Getting Directions
+좌회전하다,to make a left turn,7,Getting Directions
+우회전하다,to make a right turn,7,Getting Directions
+유턴하다,to make a U-turn,7,Getting Directions
+지나다,to pass,7,Getting Directions
+세우다,to stop,7,Getting Directions
+오래,a long time,7,Getting Directions
+걸어가다,to walk,7,Getting Directions
+(요금이) 나오다,(the fare) to come out,7,Getting Directions
+빠르다,to be fast,7,Getting Directions
+기사,driver,7,Getting Directions
+출근,going to work,7,Getting Directions
+쪽,way,7,Getting Directions
+보이다,to be seen,7,Getting Directions
+출퇴근,commuting,7,Getting Directions
+사당역,Sadang Station,7,Getting Directions
+공사하다,to be under construction,7,Getting Directions
+베이징,Beijing,7,Getting Directions
+왼쪽으로 돌아가다,to make a detour to the left,7,Getting Directions
+쭉 가다,to keep straight,7,Getting Directions
+건너다,to cross,7,Getting Directions
+출구,exit,7,Getting Directions
+입구,entrance,7,Getting Directions
+주차장,parking lot,7,Getting Directions
+맞은편,other side,7,Getting Directions
+호선,subway line,7,Getting Directions
+자동차,car,7,Getting Directions
+한남대교,Hannam Bridge,7,Getting Directions
+방향,direction,7,Getting Directions
+자리,space,7,Getting Directions
+지하,underground,7,Getting Directions
+아파트,condo / apartment,7,Getting Directions
+지도,map,7,Getting Directions
+올리다,to upload,7,Getting Directions
+경찰서,police station,7,Getting Directions
+물건,item,7,Getting Directions
+거리,street,7,Getting Directions
+세탁소,dry cleaner,7,Getting Directions
+머리를 하다,to do one’s hair,7,Getting Directions
+교통 약자 배려석,priority seats,7,Getting Directions
+이사하다,to move,8,Gathering
+환영하다,to welcome,8,Gathering
+떠나다,to leave,8,Gathering
+집들이,housewarming party,8,Gathering
+환영회,welcoming party,8,Gathering
+송별회,farewell party,8,Gathering
+날짜,date,8,Gathering
+장소,location,8,Gathering
+정하다,to determine,8,Gathering
+모이다,to gather,8,Gathering
+학원,academy,8,Gathering
+케이팝,K-pop,8,Gathering
+댄스,dance,8,Gathering
+세제,laundry detergent,8,Gathering
+새집,new house,8,Gathering
+초대장을 쓰다,to write an invitation,8,Gathering
+장을 보다,to go grocery shopping,8,Gathering
+방을 장식하다,to decorate the room,8,Gathering
+선물을 고르다,to choose a gift,8,Gathering
+가져가다,to take / bring,8,Gathering
+간식,snacks,8,Gathering
+음료,beverage,8,Gathering
+풍선,balloon,8,Gathering
+초,candle,8,Gathering
+촛불을 켜다,to light the candles,8,Gathering
+촛불을 끄다,to blow out the candles,8,Gathering
+케이크를 자르다,to cut the cake,8,Gathering
+선물을 풀다,to open the gift,8,Gathering
+박수를 치다,to clap,8,Gathering
+일이 생기다,to have something come up,8,Gathering
+아마,probably,8,Gathering
+메모하다,to write down notes,8,Gathering
+부탁하다,to ask a favor,8,Gathering
+미리,in advance,8,Gathering
+곧,soon,8,Gathering
+연말,end of the year,8,Gathering
+과자,cracker(s),8,Gathering
+식사비,meal expense,8,Gathering
+각자,separately,8,Gathering
+입맛이 없다,to not have an appetite,9,Healthy Life
+잠을 잘 못 자다,to have trouble sleeping,9,Healthy Life
+기운이 없다,to be lethargic,9,Healthy Life
+머리가 빠지다,to lose one’s hair,9,Healthy Life
+살이 찌다,to gain weight,9,Healthy Life
+살이 빠지다,to lose weight,9,Healthy Life
+소화제,indigestion medicine,9,Healthy Life
+감기약,cold medicine,9,Healthy Life
+두통약,headache medicine,9,Healthy Life
+연고,ointment,9,Healthy Life
+안약,eye drops,9,Healthy Life
+파스,pain relieving patch,9,Healthy Life
+반창고,band-aid,9,Healthy Life
+바르다,to apply,9,Healthy Life
+자꾸,frequently,9,Healthy Life
+샴푸,shampoo,9,Healthy Life
+안 그래도,actually,9,Healthy Life
+약사,pharmacist,9,Healthy Life
+식후,after meals,9,Healthy Life
+손가락,finger,9,Healthy Life
+피가 나다,to bleed,9,Healthy Life
+머리를 말리다,to dry one’s hair,9,Healthy Life
+치료를 받다,to receive treatment,9,Healthy Life
+내과,internal medicine,9,Healthy Life
+피부과,dermatologist,9,Healthy Life
+치과,dentist,9,Healthy Life
+소화가 안 되다,to have indigestion,9,Healthy Life
+배탈이 나다,to have an upset stomach,9,Healthy Life
+토하다,to vomit,9,Healthy Life
+다치다,to get hurt,9,Healthy Life
+뭐가 나다,to have a rash,9,Healthy Life
+이비인후과,otolaryngology,9,Healthy Life
+정형외과,orthopedics,9,Healthy Life
+안과,ophthalmology,9,Healthy Life
+붓다,to be swollen,9,Healthy Life
+어지럽다,to be dizzy,9,Healthy Life
+눈이 잘 안 보이다,to not see very well,9,Healthy Life
+온라인,online,9,Healthy Life
+상담,consultation,9,Healthy Life
+제목,title,9,Healthy Life
+증상,symptom,9,Healthy Life
+비타민,vitamin,9,Healthy Life
+조언을 듣다,to take advice,9,Healthy Life
+개인,personal,9,Healthy Life
+무리하다,to overdo oneself,9,Healthy Life
+새,new,1,Introduction
+자기소개,self-introduction,1,Introduction
+이어폰을 끼다,to wear earphones,1,Introduction
+꽃,flower,1,Introduction
+말,horse,1,Introduction
+요금,fare,1,Introduction
+참외,Korean melon,1,Introduction
+시끄럽다,to be noisy,1,Introduction
+거의,nearly,1,Introduction
+소식,news,1,Introduction
+시간이 나다,to have free time,2,Hobby
+싫어하다,to dislike,2,Hobby
+한자,Chinese character(s),2,Hobby
+한국어 표현,Korean alphabet,2,Hobby
+홈페이지,homepage,2,Hobby
+후,after,2,Hobby
+호랑이,tiger,3,Travel Experiences
+그곳,there,3,Travel Experiences
+기념품,souvenir,3,Travel Experiences
+신혼여행,honeymoon,3,Travel Experiences
+다녀오다,to go to and from,3,Travel Experiences
+케이티엑스(,Korea Train express,3,Travel Experiences
+우산,umbrella,3,Travel Experiences
+곧,soon,3,Travel Experiences
+다르다,to be different,3,Travel Experiences
+고등학교,high school,3,Travel Experiences
+졸업하다,to graduate,3,Travel Experiences
+결혼하다,to marry,3,Travel Experiences
+얼마,how long,3,Travel Experiences
+일주일,one week,3,Travel Experiences
+끝내다,to end,3,Travel Experiences
+준비운동,warm-up exercises,3,Travel Experiences
+생각하다,to think,3,Travel Experiences
+혹시,by any chance,3,Travel Experiences
+그때,at that time,3,Travel Experiences
+잘되다,to turn out well,3,Travel Experiences
+공연,performance,3,Travel Experiences
+궁금하다,to be curious,3,Travel Experiences
+연습실,practice room,3,Travel Experiences
+사용,usage,3,Travel Experiences
+교통편,transportation,3,Travel Experiences
+과자,cracker(s),3,Travel Experiences
+악기,instrument,3,Travel Experiences
+연주하다,to play (an instrument),3,Travel Experiences
+점,point / aspect,3,Travel Experiences
+상하이,Shanghai,3,Travel Experiences
+느끼다,to feel,3,Travel Experiences
+벽,wall,3,Travel Experiences
+등,et cetera,3,Travel Experiences
+지난,last,3,Travel Experiences
+두부,tofu,3,Travel Experiences
+귤,tangerine,4,Shopping
+스웨터,sweater,4,Shopping
+어리다,to be young,4,Shopping
+훨씬,much (more),4,Shopping
+더,more,4,Shopping
+채소,vegetable(s),4,Shopping
+영수증,receipt,4,Shopping
+홈쇼핑,home shopping,4,Shopping
+생각나다,to come to mind,4,Shopping
+젓가락,chopstick(s),4,Shopping
+카드,card,4,Shopping
+계산하다,to pay,4,Shopping
+컵라면,instant cup noodles,4,Shopping
+초대장,invitation,5,Post Offices & Banks
+풀,glue,5,Post Offices & Banks
+(전화를) 걸다,to call,5,Post Offices & Banks
+출근,going to work,5,Post Offices & Banks
+아마,probably,5,Post Offices & Banks
+일기 예보,weather forecast,5,Post Offices & Banks
+가져가다,to take,5,Post Offices & Banks
+월급,monthly paycheck,5,Post Offices & Banks
+생기다,to get,5,Post Offices & Banks
+계좌 번호,account number,5,Post Offices & Banks
+모르다,to not know,5,Post Offices & Banks
+오르다,to go up,5,Post Offices & Banks
+서두르다,to hurry,5,Post Offices & Banks
+빠르다,to be fast,5,Post Offices & Banks
+비슷하다,to be similar,5,Post Offices & Banks
+사용하다,to use,5,Post Offices & Banks
+버튼,button,5,Post Offices & Banks
+값,price,5,Post Offices & Banks
+대답하다,to answer,5,Post Offices & Banks
+싱겁다,to be bland,5,Post Offices & Banks
+소금,salt,5,Post Offices & Banks
+문법,grammar,5,Post Offices & Banks
+여쭤보다,to ask (honorific),5,Post Offices & Banks
+현금,cash,5,Post Offices & Banks
+포크,fork,5,Post Offices & Banks
+도장,seal,5,Post Offices & Banks
+사과하다,to apologize,5,Post Offices & Banks
+싱겁다,to be bland,5,Post Offices & Banks
+소금,salt,5,Post Offices & Banks
+문법,grammar,5,Post Offices & Banks
+여쭤보다,to ask (honorific),5,Post Offices & Banks
+현금,cash,5,Post Offices & Banks
+포크,fork,5,Post Offices & Banks
+도장,seal,5,Post Offices & Banks
+사과하다,to apologize,5,Post Offices & Banks
+아파트,condo / apartment,6,Daily Routine
+이제,now,6,Daily Routine
+부탁하다,to ask a favor,6,Daily Routine
+흘리다,to spill,6,Daily Routine
+용돈,allowance,6,Daily Routine
+해외여행,overseas trip,6,Daily Routine
+씩,each,6,Daily Routine
+이해하다,to understand,6,Daily Routine
+때,during,6,Daily Routine
+벌써,already,6,Daily Routine
+샴푸,shampoo,6,Daily Routine
+오랜만에,after a long time,6,Daily Routine
+고객님,customer,6,Daily Routine
+벨,bell,6,Daily Routine
+불,light,6,Daily Routine
+끓이다,to boil,6,Daily Routine
+앞치마,apron,6,Daily Routine
+외출하다,to go outside,6,Daily Routine
+마치다,to finish,6,Daily Routine
+양말,sock(s),6,Daily Routine
+소고기,beef,6,Daily Routine
+환율,exchange rate,6,Daily Routine
+짜리,worth,6,Daily Routine
+방송,broadcasting,6,Daily Routine
+머리를 하다,to do one’s hair,6,Daily Routine
+자르다,to cut,6,Daily Routine
+헤어스타일,hair style,6,Daily Routine
+추천하다,to recommend,6,Daily Routine
+유행하다,to be in fashion,6,Daily Routine
+잃어버리다,to lose,6,Daily Routine
+잊어버리다,to forget,6,Daily Routine
+방문하다,to visit,6,Daily Routine
+보고서,report,6,Daily Routine
+물건,item,6,Daily Routine
+마지막,the last,6,Daily Routine
+여기저기,here and there,6,Daily Routine
+행복하다,to be happy,6,Daily Routine
+(노래를) 부르다,to sing,6,Daily Routine
+직접,directly,6,Daily Routine
+종이,paper,6,Daily Routine
+가끔,sometimes,6,Daily Routine
+미리,in advance,6,Daily Routine
+등산화,hiking shoes,7,Getting Directions
+아기,baby,7,Getting Directions
+매표소,ticket office,7,Getting Directions
+계란,egg,7,Getting Directions
+슈퍼,supermarket,7,Getting Directions
+놀이공원,amusement park,8,Gathering
+송편,half-moon shaped rice cake,8,Gathering
+이따가,in a little bit,8,Gathering
+코미디,comedy,8,Gathering
+유학생,international student,8,Gathering
+동아리,club,8,Gathering
+행사,event,8,Gathering
+칼,knife,8,Gathering
+클래식,classic,8,Gathering
+조용히,quietly,8,Gathering
+고민,concern,9,Healthy Life
+스트레스를 받다,to be stressed,9,Healthy Life
+치킨,chicken,9,Healthy Life
+자꾸,frequently,9,Healthy Life
+가구,furniture,9,Healthy Life
+앞머리,bangs,9,Healthy Life
+피가 나다,to bleed,9,Healthy Life
+건조하다,to be dry,9,Healthy Life
+줄이다,to reduce,9,Healthy Life
+해산물,seafood,9,Healthy Life
+낫다,to recover,9,Healthy Life
+짓다,to build,9,Healthy Life
+젓다,to stir,9,Healthy Life
+새로,newly,9,Healthy Life
+설탕,sugar,9,Healthy Life
+국,soup,9,Healthy Life
+서로,each other,9,Healthy Life
+내려가다,to go down,9,Healthy Life
+공항철도,airport railroad,9,Healthy Life
+께서,honorific subject particle,9,Healthy Life
+이촌역,Ichon Station,9,Healthy Life
+진료,(medical) treatment,9,Healthy Life

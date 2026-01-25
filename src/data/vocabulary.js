@@ -1,11 +1,12 @@
 // Vocabulary data extracted from Seoul National University Korean textbooks
-// Book 1A (Student Book + Workbook) and Book 1B (Student Book + Workbook)
+// Book 1A, 1B, 2A (Student Book + Workbook)
 // Korean-English pairs with chapter information
 // Auto-generated from CSV files
 // Use https://www.youpdf.com/ to convert pdf to text
 
 import vocab1A from './1A_combined.csv?raw'
 import vocab1B from './1B_combined.csv?raw'
+import vocab2A from './2A_combined.csv?raw'
 
 function parseCSV(csv) {
   const lines = csv.trim().split('\n')
@@ -29,6 +30,7 @@ function parseCSV(csv) {
 
 const vocab1AData = parseCSV(vocab1A)
 const vocab1BData = parseCSV(vocab1B)
+const vocab2AData = parseCSV(vocab2A)
 
 // Extract unique chapters for each book
 function getChapters(data) {
@@ -46,12 +48,17 @@ function getChapters(data) {
 export const chapters = {
   "1A": getChapters(vocab1AData),
   "1B": getChapters(vocab1BData),
+  "2A": getChapters(vocab2AData),
 }
 
 export const vocabulary = {
   "1A": vocab1AData,
   "1B": vocab1BData,
-  "All": [...vocab1AData, ...vocab1BData],
+  "2A": vocab2AData,
+  "All": [...vocab1AData, ...vocab1BData, ...vocab2AData],
 };
+
+// Export list of available books for dynamic UI rendering
+export const availableBooks = Object.keys(vocabulary).filter(key => key !== 'All');
 
 

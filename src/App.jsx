@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import confetti from 'canvas-confetti'
-import { vocabulary, chapters } from './data/vocabulary'
+import { vocabulary, chapters, availableBooks } from './data/vocabulary'
 
 function shuffleArray(arr) {
   const result = [...arr]
@@ -79,7 +79,7 @@ function SettingsScreen({ book, setBook, chapter, setChapter, lang, setLang, shu
           <div>
             <label className="block text-sm font-semibold text-gray-300 mb-2">Select Book</label>
             <div className="grid grid-cols-3 gap-2">
-              {['1A', '1B', 'All'].map((b) => (
+              {[...availableBooks, 'All'].map((b) => (
                 <button
                   key={b}
                   onClick={() => { setBook(b); setChapter('all'); }}
@@ -544,23 +544,7 @@ function App() {
     )
   }
 
-  return <>
-         {/* Tutorial Snackbar */}
-            {showKnownTutorial && (
-              <div className="fixed top-16 right-2 w-64 bg-indigo-600 rounded-xl shadow-lg p-4 z-50">
-                {/* Arrow pointing to settings icon */}
-                <div className="absolute -top-2 right-5 w-4 h-4 bg-indigo-600 transform rotate-45"></div>
-              <p className="text-white text-sm mb-3">
-                Word marked as learned! You can manage learned words from the settings menu.
-              </p>
-              <button
-                onClick={dismissKnownTutorial}
-                className="w-full py-2 px-3 bg-white/20 text-white text-sm font-semibold rounded-lg hover:bg-white/30 transition-colors"
-              >
-                Got it
-              </button>
-              </div>
-            )}
+  return (
     <div className="h-full bg-gray-900 flex flex-col">
       <header className="bg-gray-800 px-4 py-3 pt-[calc(0.75rem+env(safe-area-inset-top))] flex items-center justify-between">
         <div className="flex items-center gap-1">
@@ -594,7 +578,22 @@ function App() {
               </svg>
             </button>
             
-           
+            {/* Tutorial Snackbar */}
+            {showKnownTutorial && (
+              <div className="fixed top-16 right-2 w-64 bg-indigo-600 rounded-xl shadow-lg p-4 z-50">
+                {/* Arrow pointing to settings icon */}
+                <div className="absolute -top-2 right-5 w-4 h-4 bg-indigo-600 transform rotate-45"></div>
+              <p className="text-white text-sm mb-3">
+                Word marked as learned! You can manage learned words from the settings menu.
+              </p>
+              <button
+                onClick={dismissKnownTutorial}
+                className="w-full py-2 px-3 bg-white/20 text-white text-sm font-semibold rounded-lg hover:bg-white/30 transition-colors"
+              >
+                Got it
+              </button>
+              </div>
+            )}
           </div>
         </div>
       </header>
@@ -728,14 +727,14 @@ function App() {
                 if (!knownWordsSearch) return true
                 const search = knownWordsSearch.trim().replace(/^[^\w\uAC00-\uD7A3]+|[^\w\uAC00-\uD7A3]+$/g, '').toLowerCase()
                 if (!search) return true
+                // Find word entry in current book or fallback to any available book
                 const entry = vocabulary[book]?.find(v => v.korean === word) || 
-                              vocabulary['1A']?.find(v => v.korean === word) || 
-                              vocabulary['1B']?.find(v => v.korean === word)
+                              availableBooks.map(b => vocabulary[b]?.find(v => v.korean === word)).find(Boolean)
                 return koreanIncludes(word, search) || entry?.english?.toLowerCase().includes(search)
               }).map(word => {
+                // Find word entry in current book or fallback to any available book
                 const entry = vocabulary[book]?.find(v => v.korean === word) || 
-                              vocabulary['1A']?.find(v => v.korean === word) || 
-                              vocabulary['1B']?.find(v => v.korean === word)
+                              availableBooks.map(b => vocabulary[b]?.find(v => v.korean === word)).find(Boolean)
                 return (
                   <div key={word} className="flex items-center justify-between bg-gray-700 rounded-lg px-3 py-2 gap-2">
                     <div className="flex-1 min-w-0">
@@ -929,7 +928,7 @@ function App() {
         </div>
       </footer>
     </div>
-  </>
+  )
 }
 
 export default App
