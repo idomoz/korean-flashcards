@@ -2,7 +2,7 @@
 // Book 1A, 1B, 2A (Student Book + Workbook)
 // Korean-English pairs with chapter information
 // Auto-generated from CSV files
-// Use https://www.youpdf.com/ to convert pdf to text
+// Use https://www.youpdf.com/pdf-to-txt.html to convert pdf to text
 
 import vocab1A from './1A_combined.csv?raw'
 import vocab1B from './1B_combined.csv?raw'
