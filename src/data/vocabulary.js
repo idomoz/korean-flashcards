@@ -1,8 +1,13 @@
 // Vocabulary data extracted from Seoul National University Korean textbooks
 // Book 1A, 1B, 2A (Student Book + Workbook)
 // Korean-English pairs with chapter information
-// Auto-generated from CSV files
-// Use https://www.youpdf.com/pdf-to-txt.html to convert pdf to text
+
+// Workflow to add a new book:
+// 1. Convert PDFs to text using https://www.youpdf.com/pdf-to-txt.html
+// 2. Add new txt files references to scripts/convert-to-csv.js
+// 3. Run `node scripts/convert-to-csv.js` to generate CSV files
+// 4. Copy the new combined csv file to src/data folder
+// 5. Update src/data/vocabulary.js with new combined csv file reference
 
 import vocab1A from './1A_combined.csv?raw'
 import vocab1B from './1B_combined.csv?raw'
