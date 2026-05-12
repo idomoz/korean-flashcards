@@ -86,15 +86,26 @@ function parseTextFile(content, withChapters = false) {
   // Decide whether a line is a foreign-language marker line (e.g. "중 中" or
   // "         몽 Хэмжээ ..."), as opposed to a legitimate Korean head whose
   // word happens to be 중 / 일 (the words "in the middle of" / "day" / "work").
-  // A marker line has the marker char followed by whitespace and then a
-  // non-digit, non-space character (the marker's own translation column).
+  // A marker line is detected by: the line starts with a marker char and
+  // whitespace, AND its content contains at least one non-hangul script
+  // character (Latin, CJK, kana, Cyrillic, or Latin Extended). A bare Korean
+  // head like "중   122" has only digits → not a marker. A Korean phrase
+  // beginning with "일 합니다" has only hangul → not a marker. The 몽 column
+  // can start with a digit (e.g. "몽 1-р байр"), so we cannot use a leading
+  // non-digit guard.
   const isMarkerLine = (line) => {
     const trimmed = line.replace(/^\s+/, '')
-    // Single-letter marker at start of trimmed text, followed by whitespace
-    // and then a script-letter character (Latin/CJK/Cyrillic/etc.). A bare
-    // Korean word like "중" or "일" followed only by spaces and a page number
-    // does not match this pattern.
-    return /^[중일몽베러]\s+[^\s\d]/.test(trimmed)
+    const m = trimmed.match(/^[중일몽베러]\s+(.*)$/)
+    if (!m) return false
+    // Multiple marker tokens on the same line → definitely a marker row,
+    // even if some columns wrap their content elsewhere (e.g. "몽   베   러"
+    // standalone-marker rows that appear when all three columns wrap).
+    const markerTokens = trimmed.match(/(?:^|\s)[중일몽베러](?=\s|$)/g) || []
+    if (markerTokens.length >= 2) return true
+    // Single marker → require foreign-script content in its column. A bare
+    // Korean head like "중   122" has only digits, and a Korean phrase like
+    // "일 합니다" has only hangul; neither qualifies.
+    return /[a-zA-Z\u4e00-\u9fff\u3040-\u30ff\u0400-\u04ff\u00c0-\u024f\u1e00-\u1eff]/.test(m[1])
   }
 
   // Detect a Korean head fragment on a line. Returns the matched head string,
