@@ -54,7 +54,7 @@ korean,english,chapter,chapterName
 볶음밥,fried rice,11,Food
 국수,noodles,11,Food
 라면,ramen,11,Food
-칼국수                                                                     (,knife-cut noodles,11,Food
+칼국수,knife-cut noodles,11,Food
 찌개,stew,11,Food
 순두부찌개,soft tofu stew,11,Food
 된장찌개,soybean paste stew,11,Food
@@ -74,7 +74,7 @@ korean,english,chapter,chapterName
 비빔국수,spicy mixed noodles,11,Food
 인삼차,ginseng tea,11,Food
 레몬차,lemon tea,11,Food
-을,for (something / someone),11,Food
+을 / 를 위해서,for (something / someone),11,Food
 알,counter for pill / tablet,11,Food
 씩,each,11,Food
 (드라마에) 나오다,to appear (in a drama),11,Food
@@ -92,25 +92,26 @@ korean,english,chapter,chapterName
 추천,recommendation,11,Food
 후기,review,11,Food
 맛,taste,11,Food
-값이 싸다,price is cheap / expensive,11,Food
-서비스가 좋다,service is good / bad,11,Food
-분위기가 좋다,atmosphere is good / bad,11,Food
+값이 싸다 / 비싸다,price is cheap / expensive,11,Food
+서비스가 좋다 / 나쁘다,service is good / bad,11,Food
+교통이 편리하다 / 불편하다,transportation is convenient / inconvenient,11,Food
+분위기가 좋다 / 나쁘다,atmosphere is good / bad,11,Food
 싱싱하다,to be fresh,11,Food
 물냉면,cold buckwheat noodles,11,Food
 국물,soup,11,Food
-가져다주다,to bring something to someone / deliver,11,Food
+가져다주다,to bring / deliver,11,Food
 배달,delivery,11,Food
 후식,dessert,11,Food
 빼다,to take out,11,Food
 반찬,side dish(es),11,Food
-색깔,color,12,Appearances & Personalities
-까만색,black,12,Appearances & Personalities
-하얀색,white,12,Appearances & Personalities
+색깔 / 색,color,12,Appearances & Personalities
+까만색 / 검은색,black,12,Appearances & Personalities
+하얀색 / 흰색,white,12,Appearances & Personalities
 회색,gray,12,Appearances & Personalities
 빨간색,red,12,Appearances & Personalities
 노란색,yellow,12,Appearances & Personalities
 파란색,blue,12,Appearances & Personalities
-초록색,green,12,Appearances & Personalities
+초록색 / 녹색,green,12,Appearances & Personalities
 보라색,purple,12,Appearances & Personalities
 주황색,orange,12,Appearances & Personalities
 갈색,brown,12,Appearances & Personalities
@@ -136,6 +137,10 @@ korean,english,chapter,chapterName
 면접,interview,12,Appearances & Personalities
 정장,suit,12,Appearances & Personalities
 쳐다보다,to look at,12,Appearances & Personalities
+이마가 넓다 / 좁다,to have a wide / narrow forehead,12,Appearances & Personalities
+쌍꺼풀이 있다 / 없다,to have double eyelids / to not have double eyelids,12,Appearances & Personalities
+눈썹이 진하다 / 연하다,to have dark / light eyebrows,12,Appearances & Personalities
+어깨가 넓다 / 좁다,to have broad / narrow shoulders,12,Appearances & Personalities
 활발하다,to be active,12,Appearances & Personalities
 내성적이다,to be introverted,12,Appearances & Personalities
 부지런하다,to be diligent,12,Appearances & Personalities
@@ -179,8 +184,8 @@ korean,english,chapter,chapterName
 조언하다,to advise,13,Emotions
 알아주다,to acknowledge,13,Emotions
 올리다,to improve,13,Emotions
-사이가 가깝다,to be close / not be close,13,Emotions
-사이가 좋다,to be on good / bad terms,13,Emotions
+사이가 가깝다 / 멀다,to be close / not be close,13,Emotions
+사이가 좋다 / 나쁘다,to be on good / bad terms,13,Emotions
 거절하다,to refuse,13,Emotions
 사귀다,to date,13,Emotions
 헤어지다,to break up,13,Emotions
@@ -283,8 +288,10 @@ korean,english,chapter,chapterName
 조건,condition,15,House
 공유 주택,co-living housing,15,House
 반말을 하다,to speak informally,16,Etiquette
+높임말 / 존댓말을 하다,to speak formally / in honorifics,16,Etiquette
 한 손으로 받다,to receive with one hand,16,Etiquette
 두 손으로 드리다,to give with two hands,16,Etiquette
+손을 흔들면서 인사하다,to wave with one’s hand to salute someone,16,Etiquette
 고개를 숙여서 인사하다,to bow to salute someone,16,Etiquette
 이름을 부르다,to call out a name,16,Etiquette
 다리를 꼬고 앉다,to sit with crossed legs,16,Etiquette
@@ -298,6 +305,7 @@ korean,english,chapter,chapterName
 일어서다,to get up,16,Etiquette
 금방,soon,16,Etiquette
 말을 놓다,to talk casually,16,Etiquette
+잘 부탁하다,to look forward to working / studying with you,16,Etiquette
 젓가락질,using chopsticks,16,Etiquette
 지키다,to adhere / follow / keep,16,Etiquette
 야단맞다,to be scolded,16,Etiquette
@@ -324,6 +332,7 @@ korean,english,chapter,chapterName
 콘서트,concert,17,Culture
 뮤지컬,musical,17,Culture
 연극,play,17,Culture
+사물놀이,Korean traditional percussion quartet,17,Culture
 음악회,classical music concert,17,Culture
 관심이 없다,to have no interest,17,Culture
 관심이 생기다,to start having interest,17,Culture
@@ -350,6 +359,8 @@ korean,english,chapter,chapterName
 송편,half-moon rice cake,17,Culture
 한과,Korean traditional cracker(s),17,Culture
 식혜,sweet rice drink,17,Culture
+고향에 내려가다,to go down to one’s hometown,17,Culture
+차례를 지내다,to have a memorial service for ancestors,17,Culture
 성묘하다,to visit one’s ancestral grave,17,Culture
 세배하다,to do the New Year’s bow,17,Culture
 세뱃돈을 받다,to receive New Year’s money,17,Culture
@@ -360,6 +371,7 @@ korean,english,chapter,chapterName
 친척,relative,17,Culture
 매일매일,day after day,17,Culture
 음력,lunar calendar,17,Culture
+한가위,Hangawi (Native-Korean) / Korean Thanksgiving Day,17,Culture
 해,year,17,Culture
 농사를 짓다,to farm,17,Culture
 조상,ancestor,17,Culture
@@ -372,6 +384,7 @@ korean,english,chapter,chapterName
 지역,region,17,Culture
 재료,ingredient,17,Culture
 씨름,Korean wrestling,17,Culture
+강강술래,Korean traditional circle dance,17,Culture
 보름달,full moon,17,Culture
 의미,meaning,17,Culture
 기념하다,to commemorate,17,Culture
@@ -422,12 +435,14 @@ korean,english,chapter,chapterName
 무료,free,10,School Life
 라디오,radio,10,School Life
 대회,competition,10,School Life
+1등,1st place,10,School Life
 대단하다,to be incredible,10,School Life
 성적표,report card,10,School Life
 마리,counter for animals,10,School Life
 비자,visa,10,School Life
 사탕,candy,11,Food
 레몬차,lemon tea,11,Food
+장,counter for paper / pages / tickets,11,Food
 소설,novel,11,Food
 양,quantity,11,Food
 이상,or more,11,Food
@@ -435,7 +450,10 @@ korean,english,chapter,chapterName
 배달비,delivery fee,11,Food
 가장,most,11,Food
 세계,world,11,Food
-갖다드리다,to take someone to some place (honorific expression),11,Food
+데려다주다,to take someone to some place,11,Food
+모셔다드리다,to take someone to some place (honorific expression),11,Food
+갖다주다,to bring something to someone,11,Food
+갖다드리다,to bring something to someone (honorific expression),11,Food
 경비실,security office,11,Food
 정장,suit,12,Appearances & Personalities
 마스크,mask,12,Appearances & Personalities
@@ -479,6 +497,7 @@ korean,english,chapter,chapterName
 나뭇잎,leaf,12,Appearances & Personalities
 고치다,to correct,12,Appearances & Personalities
 생선,fish,12,Appearances & Personalities
+가지,"counter for kinds, varieties, sorts",12,Appearances & Personalities
 사장님,owner,12,Appearances & Personalities
 어린이날,Children’s Day,13,Emotions
 방귀를 뀌다,to fart,13,Emotions
@@ -494,6 +513,7 @@ korean,english,chapter,chapterName
 도움,help,14,Life
 교복,school uniform,14,Life
 분실물 센터,Lost & Found Center,14,Life
+여보,(appellation between spouse) honey,14,Life
 출장,business trip,14,Life
 나무,tree,14,Life
 젖다,to get wet,14,Life

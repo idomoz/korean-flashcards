@@ -61,6 +61,7 @@ korean,english,chapter,chapterName
 잘,well,10,Korean Life
 제일,most,10,Korean Life
 대학원,grad(uate) school,10,Korean Life
+언어교육원,Language Education Institute,10,Korean Life
 하루,day,10,Korean Life
 연습,practice,10,Korean Life
 시간,hour(s),10,Korean Life
@@ -140,6 +141,7 @@ korean,english,chapter,chapterName
 메시지를 보내다,to send a text,12,Telephone
 영상 통화,video call,12,Telephone
 여보세요,Hello?,12,Telephone
+실례지만 누구세요,"Sorry, who’s this?",12,Telephone
 대답,answer,12,Telephone
 전화를 받다,to answer the phone,12,Telephone
 메시지를 받다,to receive a text,12,Telephone
@@ -413,6 +415,7 @@ korean,english,chapter,chapterName
 사랑하다,to love,15,Family
 중,among,15,Family
 군인,soldier,15,Family
+이분,this person (honorific expression),15,Family
 화장품,makeup,15,Family
 드리다,to give (honorific expression),15,Family
 같다,to be the same,15,Family

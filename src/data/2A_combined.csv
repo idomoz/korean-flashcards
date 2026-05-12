@@ -12,6 +12,7 @@ korean,english,chapter,chapterName
 취미,hobby,1,Introduction
 부르다,to call,1,Introduction
 한국학,Korean Studies,1,Introduction
+뵙다,to meet / see (humble expression),1,Introduction
 동쪽,east,1,Introduction
 서쪽,west,1,Introduction
 남쪽,south,1,Introduction
@@ -34,6 +35,7 @@ korean,english,chapter,chapterName
 동물,animal,1,Introduction
 에 대해서,about,1,Introduction
 독서,reading,2,Hobby
+외국어 공부,studying / learning a foreign language,2,Hobby
 영화 감상,watching movies,2,Hobby
 음악 감상,listening to music,2,Hobby
 낚시,fishing,2,Hobby
@@ -102,7 +104,7 @@ korean,english,chapter,chapterName
 박,night / stay,3,Travel Experiences
 시간,hour(s),3,Travel Experiences
 달,month(s),3,Travel Experiences
-주,week,3,Travel Experiences
+주 / 주일,week,3,Travel Experiences
 개월,month(s),3,Travel Experiences
 년,year(s),3,Travel Experiences
 여행사,travel agency,3,Travel Experiences
@@ -112,6 +114,7 @@ korean,english,chapter,chapterName
 포함하다,to include,3,Travel Experiences
 가격,price,3,Travel Experiences
 전주,Jeonju,3,Travel Experiences
+한옥,Hanok (Korean traditional house),3,Travel Experiences
 마을,village,3,Travel Experiences
 셔틀버스,shuttle bus,3,Travel Experiences
 오랫동안,for a long time,3,Travel Experiences
@@ -121,14 +124,16 @@ korean,english,chapter,chapterName
 감사하다,to thank,3,Travel Experiences
 대상,subject,3,Travel Experiences
 권,ticket / pass,3,Travel Experiences
-을,for (something / someone),3,Travel Experiences
-가격이 싸다,price is cheap / expensive,4,Shopping
-색깔이 밝다,color is bright / dark,4,Shopping
-사이즈가 크다,size is big / small,4,Shopping
-길이가 길다,length is long / short,4,Shopping
-굽이 높다,heel is high / low,4,Shopping
-마음에 들다,to like it / not like it,4,Shopping
-잘 어울리다,to suit well / not suit well,4,Shopping
+을 / 를 위한,for (something / someone),3,Travel Experiences
+가격이 싸다 / 비싸다,price is cheap / expensive,4,Shopping
+색깔이 밝다 / 어둡다,color is bright / dark,4,Shopping
+사이즈가 크다 / 작다,size is big / small,4,Shopping
+길이가 길다 / 짧다,length is long / short,4,Shopping
+굽이 높다 / 낮다,heel is high / low,4,Shopping
+디자인이 화려하다 / 단순하다,design is flashy / simple,4,Shopping
+사이즈가 잘 맞다 / 안 맞다,size fits well / does not fit well,4,Shopping
+마음에 들다 / 안 들다,to like it / not like it,4,Shopping
+잘 어울리다 / 안 어울리다,to suit well / not suit well,4,Shopping
 인기 있다,to be popular,4,Shopping
 손님,customer,4,Shopping
 넥타이,necktie,4,Shopping
@@ -147,6 +152,7 @@ korean,english,chapter,chapterName
 문의하다,to inquire,4,Shopping
 교환하다,to exchange,4,Shopping
 환불하다,to refund,4,Shopping
+추석,Chuseok (Sino-Korean) / Korean Thanksgiving Day,4,Shopping
 최대,maximum,4,Shopping
 할인받다,to receive a discount,4,Shopping
 모든,every,4,Shopping
@@ -156,6 +162,7 @@ korean,english,chapter,chapterName
 새,new,4,Shopping
 배송,shipping,4,Shopping
 확인하다,to confirm,4,Shopping
+말씀하다,to speak (honorific expression),4,Shopping
 포장하다,to wrap,4,Shopping
 택배,delivery service,4,Shopping
 자세하다,to be detailed,4,Shopping
@@ -172,8 +179,8 @@ korean,english,chapter,chapterName
 우표를 붙이다,to attach a stamp,5,Post Offices & Banks
 우편번호를 쓰다,to write the zip code,5,Post Offices & Banks
 번호표를 뽑다,to take a number ticket,5,Post Offices & Banks
-엽서를 보내다,to send / ship a postcard,5,Post Offices & Banks
-소포를 보내다,to send / ship a package,5,Post Offices & Banks
+엽서를 보내다 / 부치다,to send / ship a postcard,5,Post Offices & Banks
+소포를 보내다 / 부치다,to send / ship a package,5,Post Offices & Banks
 소포를 포장하다,to wrap a package,5,Post Offices & Banks
 봉투에 넣다,to put in an envelope,5,Post Offices & Banks
 서류,document,5,Post Offices & Banks
@@ -243,7 +250,7 @@ korean,english,chapter,chapterName
 집안일,household chores,6,Daily Routine
 가전제품,appliances,6,Daily Routine
 갖다,to have,6,Daily Routine
-나가다,to leave / come out,6,Daily Routine
+나가다 / 나오다,to leave / come out,6,Daily Routine
 화장을 지우다,to remove one’s makeup,6,Daily Routine
 머리를 감다,to wash one’s hair,6,Daily Routine
 목욕하다,to take a bath,6,Daily Routine
@@ -284,6 +291,7 @@ korean,english,chapter,chapterName
 공사하다,to be under construction,7,Getting Directions
 베이징,Beijing,7,Getting Directions
 왼쪽으로 돌아가다,to make a detour to the left,7,Getting Directions
+오른쪽으로 돌아가다,to make a detour to the right,7,Getting Directions
 쭉 가다,to keep straight,7,Getting Directions
 건너다,to cross,7,Getting Directions
 출구,exit,7,Getting Directions
@@ -299,6 +307,7 @@ korean,english,chapter,chapterName
 아파트,condo / apartment,7,Getting Directions
 지도,map,7,Getting Directions
 올리다,to upload,7,Getting Directions
+서울대입구역,Seoul National University Station,7,Getting Directions
 경찰서,police station,7,Getting Directions
 물건,item,7,Getting Directions
 거리,street,7,Getting Directions
@@ -324,7 +333,7 @@ korean,english,chapter,chapterName
 장을 보다,to go grocery shopping,8,Gathering
 방을 장식하다,to decorate the room,8,Gathering
 선물을 고르다,to choose a gift,8,Gathering
-가져가다,to take / bring,8,Gathering
+가져가다 / 가져오다,to take / bring,8,Gathering
 간식,snacks,8,Gathering
 음료,beverage,8,Gathering
 풍선,balloon,8,Gathering
@@ -410,7 +419,7 @@ korean,english,chapter,chapterName
 기념품,souvenir,3,Travel Experiences
 신혼여행,honeymoon,3,Travel Experiences
 다녀오다,to go to and from,3,Travel Experiences
-케이티엑스(,Korea Train express,3,Travel Experiences
+케이티엑스(KTX),Korea Train express,3,Travel Experiences
 우산,umbrella,3,Travel Experiences
 곧,soon,3,Travel Experiences
 다르다,to be different,3,Travel Experiences
@@ -533,6 +542,7 @@ korean,english,chapter,chapterName
 등산화,hiking shoes,7,Getting Directions
 아기,baby,7,Getting Directions
 매표소,ticket office,7,Getting Directions
+설날,Seollal (native Korean) / New Year’s Day,7,Getting Directions
 계란,egg,7,Getting Directions
 슈퍼,supermarket,7,Getting Directions
 놀이공원,amusement park,8,Gathering
