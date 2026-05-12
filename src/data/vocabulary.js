@@ -15,22 +15,55 @@ import vocab2A from './2A_combined.csv?raw'
 import vocab2B from './2B_combined.csv?raw'
 
 function parseCSV(csv) {
-  const lines = csv.trim().split('\n')
+  const lines = csv.trim().split(/\r?\n/)
   const pairs = []
-  // Header: korean,english,chapter,chapterName
+
+  function parseLine(line) {
+    const result = []
+    let current = ''
+    let inQuotes = false
+
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i]
+
+      if (char === '"') {
+        // Escaped quote ("")
+        if (inQuotes && line[i + 1] === '"') {
+          current += '"'
+          i++
+        } else {
+          inQuotes = !inQuotes
+        }
+      } else if (char === ',' && !inQuotes) {
+        result.push(current)
+        current = ''
+      } else {
+        current += char
+      }
+    }
+
+    result.push(current)
+
+    return result.map(field => field.trim())
+  }
+
+  // Skip header
   for (let i = 1; i < lines.length; i++) {
-    const line = lines[i]
-    // Parse CSV with potential quoted fields
-    const parts = line.split(',')
+    const line = lines[i].trim()
+    if (!line) continue
+
+    const parts = parseLine(line)
+
     if (parts.length >= 4) {
       pairs.push({
-        korean: parts[0].replace(/^"|"$/g, ''),
-        english: parts[1].replace(/^"|"$/g, ''),
+        korean: parts[0],
+        english: parts[1],
         chapter: parts[2],
-        chapterName: parts[3].replace(/^"|"$/g, '')
+        chapterName: parts[3]
       })
     }
   }
+
   return pairs
 }
 
