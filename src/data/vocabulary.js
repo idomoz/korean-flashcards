@@ -7,6 +7,7 @@
 import vocab1A from './1A_combined.csv?raw'
 import vocab1B from './1B_combined.csv?raw'
 import vocab2A from './2A_combined.csv?raw'
+import vocab2B from './2B_combined.csv?raw'
 
 function parseCSV(csv) {
   const lines = csv.trim().split('\n')
@@ -31,6 +32,8 @@ function parseCSV(csv) {
 const vocab1AData = parseCSV(vocab1A)
 const vocab1BData = parseCSV(vocab1B)
 const vocab2AData = parseCSV(vocab2A)
+const vocab2BData = parseCSV(vocab2B)
+
 
 // Extract unique chapters for each book
 function getChapters(data) {
@@ -49,13 +52,15 @@ export const chapters = {
   "1A": getChapters(vocab1AData),
   "1B": getChapters(vocab1BData),
   "2A": getChapters(vocab2AData),
+  "2B": getChapters(vocab2BData),
 }
 
 export const vocabulary = {
   "1A": vocab1AData,
   "1B": vocab1BData,
   "2A": vocab2AData,
-  "All": [...vocab1AData, ...vocab1BData, ...vocab2AData],
+  "2B": vocab2BData,
+  "All": [...vocab1AData, ...vocab1BData, ...vocab2AData, ...vocab2BData],
 };
 
 // Export list of available books for dynamic UI rendering
